@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://exommethod.com/sitemap.xml
