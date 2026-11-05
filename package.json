@@ -1,0 +1,11 @@
+{
+  "name": "exom-site",
+  "private": true,
+  "version": "1.0.0",
+  "engines": { "node": "24.x" },
+  "scripts": {
+    "build": "node REDESIGN/prototype-v4/build-release.cjs",
+    "test": "node REDESIGN/prototype-v4/checks.cjs && node REDESIGN/prototype-v4/release-checks.cjs",
+    "preview": "node REDESIGN/prototype-v4/serve-release.cjs"
+  }
+}

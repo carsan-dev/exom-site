@@ -1,0 +1,12 @@
+.codegraph/
+.codex-remote-attachments/
+REDESIGN/checkpoints/
+REDESIGN/video/
+REDESIGN/assets/media/videos/
+REDESIGN/prototype-v2/
+REDESIGN/prototype-v3/
+**/*-checks.cjs
+**/checks.cjs
+**/*.md
+dist/
+.release-manifest.json

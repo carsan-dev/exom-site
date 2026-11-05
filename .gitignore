@@ -1,3 +1,14 @@
 # Local Pi skills
 /.pi/skills/
 /skills-lock.json
+
+# Reproducible public release; never edit generated files.
+/dist/
+/.release-manifest.json
+
+# Local tooling and remote attachments are not release sources.
+/.codegraph/
+/.codex-remote-attachments/
+/.vercel/
+/.env
+/.env.*

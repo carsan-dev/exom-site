@@ -1,0 +1,17 @@
+{
+  "source": "Físico actual Moi.mov",
+  "sha256": "f83c68718e11917d2def8e748515ef946131aae6d0c006e445827813c0572fa6",
+  "segments": [
+    1,
+    6,
+    11
+  ],
+  "segmentDuration": 2.6,
+  "duration": 7.8,
+  "crop": "720:1280:180:400",
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "crf": 18,
+  "toneMapping": "bt.2446a"
+}

@@ -1,0 +1,1274 @@
+[
+  {
+    "name": "assets/barlow-condensed-800.ttf",
+    "bytes": 87556,
+    "sha256": "73bc9e17231e9073780d3c81574c7253cecd5645c93544df1a935054b39a364f",
+    "candidate": "97354e84d7bdfd25.woff",
+    "candidateBytes": 42768,
+    "candidateSha256": "2f5d6496913544e809d1d793a406bc4afe6cad52ad6078ea507b02f333f7e43c",
+    "exactTables": true,
+    "status": "ACCEPT_SMALLER_LOSSLESS"
+  },
+  {
+    "name": "assets/dm-sans-400.ttf",
+    "bytes": 48280,
+    "sha256": "b0ae3e89a7d3ef2b1838bb4b1ceb0b17cc3435af061eee809d76aa623ff116e9",
+    "candidate": "cd0c9529db4416af.woff",
+    "candidateBytes": 26204,
+    "candidateSha256": "f07db80e41c6b331c15e9211cc010f88a587918cd91cf944ceb0a542bff96cf3",
+    "exactTables": true,
+    "status": "ACCEPT_SMALLER_LOSSLESS"
+  },
+  {
+    "name": "assets/dm-sans-600.ttf",
+    "bytes": 48280,
+    "sha256": "b79a2ea7a38f33fd96a282fadb9ce97626bb0724a44d21075859f0e50239993a",
+    "candidate": "ae8c148babf6b178.woff",
+    "candidateBytes": 26120,
+    "candidateSha256": "cf75c8052a6732a791063723a780cdf7863569ebb09f26f08516bef84945aa2f",
+    "exactTables": true,
+    "status": "ACCEPT_SMALLER_LOSSLESS"
+  },
+  {
+    "name": "assets/scenes-client-v1/coach/poster.webp",
+    "bytes": 88698,
+    "sha256": "ae13f72def046dc26d0515637f4f131d7c36b55333401beddb005ebcae0a13f7",
+    "candidate": "7836608868d1ab50.webp",
+    "candidateBytes": 66696,
+    "candidateSha256": "5e5d12992604d1140d8bcd4faa0968a8059757dca268b149992f576243c8f302",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "originalDimensions": [
+      720,
+      1280
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/clients-v1/cristina.webp",
+    "bytes": 34926,
+    "sha256": "4b3498efa31c92a3f59ec4a0140bec253b51f3c1c298430559527f6d19dfeedb",
+    "candidate": "bd47a142bcfea582.webp",
+    "candidateBytes": 29488,
+    "candidateSha256": "337ea3817d6d92ae260c7a21ac6b92d041cd0f26a158ad146e9b6bcec60a1c29",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      540,
+      960
+    ],
+    "originalDimensions": [
+      540,
+      960
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/foto-portada-moi-transparent.png",
+    "bytes": 1543835,
+    "sha256": "b6b992f6a1f0b5749c62c7e04d3d78c39d75a6a5c22a428622bf78cad9c294b4",
+    "candidate": "1f6d31e9c5f34533.webp",
+    "candidateBytes": 93520,
+    "candidateSha256": "66769a7c7230cf8b1b77115f7a50dd900416470ad42f19ddcc66c2f2b1fa147d",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1086,
+      1448
+    ],
+    "originalDimensions": [
+      1086,
+      1448
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/clients-v1/carlos.webp",
+    "bytes": 66486,
+    "sha256": "3ac9c3ba2b7883551ea44d422b107e55e68be93d47c3d066ef01709ecbc8aed6",
+    "candidate": "75a7adf4eabd3341.webp",
+    "candidateBytes": 55030,
+    "candidateSha256": "fe4881dec4799cd9f47bc483a2b1eb5de5aaa0b596e7f6805e0b87b1da67b44a",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      540,
+      960
+    ],
+    "originalDimensions": [
+      540,
+      960
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Moi trabajando escuela.jpg",
+    "bytes": 4269771,
+    "sha256": "57d3cea30e4c57435abf15438aa6b1b58543ac85901027f51c6627b1a62dde34",
+    "candidate": "1a558c984a5f667a.webp",
+    "candidateBytes": 467532,
+    "candidateSha256": "79b001118026f33cd120a754a8dd74be8878ec656de7255542f1ad01f6e73631",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      4536,
+      8064
+    ],
+    "originalDimensions": [
+      4536,
+      8064
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Captura App Entreno.jpeg",
+    "bytes": 113718,
+    "sha256": "8ebcadddbe61734635a0185ec6d744dc5c3f6a0c093d04cb09d6a2abde7d0fa7",
+    "candidate": "e216897573ef3c01.webp",
+    "candidateBytes": 64508,
+    "candidateSha256": "2202d8966eda2e47decd3cb2a3eb812fe9e78f15c7957af7de504e8cd2193a5e",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      945,
+      2048
+    ],
+    "originalDimensions": [
+      945,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Captura App Comida.jpeg",
+    "bytes": 130134,
+    "sha256": "f4b2095132237632040302174ee13a09df6ab04af9d0fc96468ea118a0687e11",
+    "candidate": "a436ca02af400608.webp",
+    "candidateBytes": 80104,
+    "candidateSha256": "9492a0affde7ee9defdc19523209d52cb5e9ad8b0fa254e35860c51c2476e0ee",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      945,
+      2048
+    ],
+    "originalDimensions": [
+      945,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Captura App Progreso.jpeg",
+    "bytes": 91089,
+    "sha256": "f575c2e73ab986c35f3426f2751f95922ec26c6af1a52b7a85a8b161058f802a",
+    "candidate": "b96a6906bbcb693c.webp",
+    "candidateBytes": 47458,
+    "candidateSha256": "22f83bb9af0553cc8782d7abb86a4e509167a98248b5ba991b09eb11570e1d6f",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      945,
+      2048
+    ],
+    "originalDimensions": [
+      945,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/gallery-client-v1/carlos-poster.webp",
+    "bytes": 27316,
+    "sha256": "7104f14f98b986b8af4be0fd2f00c7681081a65ca2da1ac620de080caedf43e0",
+    "candidate": "0a0734fbcd7c48f4.webp",
+    "candidateBytes": 22002,
+    "candidateSha256": "30bc735317b54a62ba65f97e4c9688a816885eb5187d02621c60ccf93042e545",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      360,
+      640
+    ],
+    "originalDimensions": [
+      360,
+      640
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/gallery-client-v1/cristina-poster.webp",
+    "bytes": 22832,
+    "sha256": "6d117977d2531867b2121b70e6ba4b73983c0cfdc6dc255fb41584659ae7f9cb",
+    "candidate": "88aefb2ede735ca8.webp",
+    "candidateBytes": 18896,
+    "candidateSha256": "15adcc0aacc44121767d9581d5d73a5c4bbc99d87b0f4eab0a0c729f2b1cb8da",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      360,
+      640
+    ],
+    "originalDimensions": [
+      360,
+      640
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/gallery-client-v1/jesus-poster.webp",
+    "bytes": 27852,
+    "sha256": "334e60c16ea16223a6cb32e6b26c458477ead966e92773ce5f8e5f62300b828c",
+    "candidate": "7713611d28886a1c.webp",
+    "candidateBytes": 23160,
+    "candidateSha256": "e233b3baa5624f0254438cc108c4c498430323a2c7c79844a69454f1f28fbdde",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      360,
+      640
+    ],
+    "originalDimensions": [
+      360,
+      640
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/gallery-client-v1/jose-poster.webp",
+    "bytes": 27872,
+    "sha256": "c8c658b4e95ca5aca046adfb875833712fb9629c8883ba61077e8aeb05a27a24",
+    "candidate": "8de525a846220bd1.webp",
+    "candidateBytes": 22004,
+    "candidateSha256": "71e0507ae05f049f1d02da44ebd1904a517d25a341174f6ba7cf909d4ea43fe4",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      360,
+      640
+    ],
+    "originalDimensions": [
+      360,
+      640
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/gallery-client-v1/lucia-poster.webp",
+    "bytes": 36236,
+    "sha256": "61358eb4bc5a34099109d28122750ee6ad0dc514ab859cfada490132c1d5f9f9",
+    "candidate": "01724961177a15ec.webp",
+    "candidateBytes": 30034,
+    "candidateSha256": "0a089fb4faa4f1c0779dc9dd1482d0a5a7079f842ef790a234eb65043689f490",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      360,
+      640
+    ],
+    "originalDimensions": [
+      360,
+      640
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/gallery-client-v1/miguel-poster.webp",
+    "bytes": 14308,
+    "sha256": "e2410b4adb885c82d697130bd665cba3b34fc45b811c6d5dfee96ec4eaa1d757",
+    "candidate": "ea9cbb3a52b1da80.webp",
+    "candidateBytes": 10964,
+    "candidateSha256": "6e3becfe844ce2c41331ea425595ddc391544cb5bb6b876fa0f6c0b0aa5905f1",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      360,
+      640
+    ],
+    "originalDimensions": [
+      360,
+      640
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/strategy-training-poster.webp",
+    "bytes": 291934,
+    "sha256": "61f8234345eb5710f3dd9092ce14164c0a10408174d04fc1beaafedbdf09aa4b",
+    "candidate": "b9b8d19afedd50e4.webp",
+    "candidateBytes": 30462,
+    "candidateSha256": "f5e2eaa3d3aa94fc051190ef3a6f3c685c699e75dfc9eea245ba5b7293447668",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "originalDimensions": [
+      720,
+      1280
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/jose-before.jpg",
+    "bytes": 1097290,
+    "sha256": "e29223fc82141f2cf29121015d437c09d9cf83f1fef45ee3695dde79728d8915",
+    "candidate": "4478070c6e58e24b.webp",
+    "candidateBytes": 218188,
+    "candidateSha256": "8660110d33b39ec5de62d9e12459e2a18322ce9da355ad39b35005456d14b0c8",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      2268,
+      4032
+    ],
+    "originalDimensions": [
+      2268,
+      4032
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/jose-after-embedded.jpg",
+    "bytes": 7572983,
+    "sha256": "b162f9fedddaae6bdaefdd81c71b49e540099087bccb410f530d4c7c54d072b8",
+    "candidate": "91ee658848183c49.webp",
+    "candidateBytes": 495010,
+    "candidateSha256": "2da7a92ae81fd81b082c93dc0af5df1fd485042096e8702432bd2c7bd17b57e7",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      3600,
+      4800
+    ],
+    "originalDimensions": [
+      6048,
+      8064
+    ],
+    "resized": true,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/review/carlos-personas-eliminadas-propuesta.png",
+    "bytes": 3307493,
+    "sha256": "2646e1c17c3815cd384752db90104c23ef58fce251f2a087219603db752b5872",
+    "candidate": "a3feb14d25a4e378.webp",
+    "candidateBytes": 333866,
+    "candidateSha256": "57f705691d5817c5f15515648a95d54df07e39bb6c33a641ae1a141bbb012207",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1960,
+      802
+    ],
+    "originalDimensions": [
+      1960,
+      802
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Carlos ahora.jpg",
+    "bytes": 1551213,
+    "sha256": "47d81484f2f6f7c3a43ba7bc0e0c46a5fd6382262f11b6d03a1bfcf86eda15b7",
+    "candidate": "c2cc0920df2ab03e.webp",
+    "candidateBytes": 480284,
+    "candidateSha256": "5469ba441b54e86a20f301c8ca60fc945e38ffaba7e2daf413676270568e2a13",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1939,
+      2585
+    ],
+    "originalDimensions": [
+      3840,
+      5120
+    ],
+    "resized": true,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/progress/miguel-before-approved-v1.png",
+    "bytes": 1972330,
+    "sha256": "cdb5c0d2383230a4f5bb399ca6b9ae1d9ec6d470692869e12862d496e28591fc",
+    "candidate": "f2198c6befb11779.webp",
+    "candidateBytes": 62362,
+    "candidateSha256": "cda34caf42b05b0cb3b29f58010f79aab9a96f27ea48444c7c8e49bf6d5a6e2b",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1086,
+      1448
+    ],
+    "originalDimensions": [
+      1086,
+      1448
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Miguel primo ahora.jpg",
+    "bytes": 400343,
+    "sha256": "0bb9cc9e40558efa63ffdd6a6c4419553d91951d5fea8fdc51c3b0765ae2efec",
+    "candidate": "16cdbbb0d3bcb83d.webp",
+    "candidateBytes": 110896,
+    "candidateSha256": "06958345b1c918f416dd6d40aa00507252f1281e2393ace1ed38307cfd9a7e5e",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1152,
+      2048
+    ],
+    "originalDimensions": [
+      1152,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/clients-v1/jose.webp",
+    "bytes": 52562,
+    "sha256": "8b334592909035db70f6cfe2864c85e63eb77f6eafcba675ac7b55da6ff0107f",
+    "candidate": "f487f63dde2d3963.webp",
+    "candidateBytes": 38648,
+    "candidateSha256": "61c094a168aac5dfcef96a2bf1191413ba1582689d53fb84ceec7a49986986f4",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      540,
+      960
+    ],
+    "originalDimensions": [
+      540,
+      960
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/clients-v1/miguel-polea.webp",
+    "bytes": 37606,
+    "sha256": "c54262262e80e39a12ff38f862bc20c3747f45b5e4d5c98ffd952b19e52056cd",
+    "candidate": "9348c4ad06643825.webp",
+    "candidateBytes": 29376,
+    "candidateSha256": "0de164d9484597ee8560bab1af4cf970d0f0b183e7d69660b45e2f51eea351ed",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      540,
+      960
+    ],
+    "originalDimensions": [
+      540,
+      960
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/clients-v1/lucia.webp",
+    "bytes": 59938,
+    "sha256": "d1c0a94bc0f2beadf16f0a1d3ccb7a3ca7cf207c03795a3db7054a66455282f7",
+    "candidate": "94a6bcca7d8994cb.webp",
+    "candidateBytes": 47442,
+    "candidateSha256": "bed782d1cceee4c7a1f1735b32198a4c1245ac1314688bd0e7945971bc7b685c",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      540,
+      960
+    ],
+    "originalDimensions": [
+      540,
+      960
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Moi vestido taekwondo.png",
+    "bytes": 1447207,
+    "sha256": "8cbfd23ccba9f0d5229fad7f63bec0a3a42d4dfc9cbefc7c2d70acb9c6d113e0",
+    "candidate": "cb4a03ef6b6dd447.webp",
+    "candidateBytes": 68168,
+    "candidateSha256": "c2ecc0404da0c65def616fcb357a5321038cfa4ca194a0c91a8832a46b7e7ead",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "originalDimensions": [
+      1024,
+      1536
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/early-school.webp",
+    "bytes": 61784,
+    "sha256": "fa7f145365a3f03f5270a206439f2c11753dce131243adafe386a0789a0de787",
+    "candidate": "1bc82f23ce57c9a4.webp",
+    "candidateBytes": 53012,
+    "candidateSha256": "8cceb4f92be5f3767416127fd222cbc8bf1149423a5302dee3c0000696408ff1",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1600,
+      900
+    ],
+    "originalDimensions": [
+      1600,
+      900
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/rehab-floor.webp",
+    "bytes": 59754,
+    "sha256": "06e4f2b09d760e263ccedb60b2a4e4188720d5cfdbbd62b49359a2d1cf235c95",
+    "candidate": "d3e2edf2e2cbd66d.webp",
+    "candidateBytes": 45334,
+    "candidateSha256": "caaf4f4941a79e5462fdc8b0bc6b78fcec84cee97be470af14591993d6d50dd9",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      794,
+      1400
+    ],
+    "originalDimensions": [
+      794,
+      1400
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/creating.webp",
+    "bytes": 59368,
+    "sha256": "8b0c58942df04b171152673cf087c3d528bfad914405b827188d949a82ffae2b",
+    "candidate": "8e0b1af515230576.webp",
+    "candidateBytes": 47390,
+    "candidateSha256": "6deb6ce32ffb5a1ea94919aa8903320633fdacd28e215e70b28157778afb9c51",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      900,
+      1600
+    ],
+    "originalDimensions": [
+      900,
+      1600
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history-present/pose-2.webp",
+    "bytes": 53902,
+    "sha256": "0ddde3f5451132d8fce905f9f26231395911411486392b20b8ae0f1536b62901",
+    "candidate": "cd4c11cc41efa0ce.webp",
+    "candidateBytes": 36274,
+    "candidateSha256": "9596d790d0dc3ed8284f1e3a6b546728e502c92dbbb14fe49bbf707db086f202",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "originalDimensions": [
+      720,
+      1280
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history-present/pose-3.webp",
+    "bytes": 56448,
+    "sha256": "514c0d02dc999b61c41cf400e3d3ba37634900742789620347f4ea67a2503e1e",
+    "candidate": "325b1f8eb699d1cb.webp",
+    "candidateBytes": 36874,
+    "candidateSha256": "11bc6598e40029f19889de8a49de812b4893387090dbe25bb91148b946495714",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "originalDimensions": [
+      720,
+      1280
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history-present/pose.webp",
+    "bytes": 58688,
+    "sha256": "59d77dca36131c162b4ef0f52a898ed09b28685aaab4fdbe3b11705b67937ad7",
+    "candidate": "1cd93fd901020fa2.webp",
+    "candidateBytes": 38618,
+    "candidateSha256": "ddd55fac848e930615afa4cfccd8213f40cbdc308d5c08a70db0ec0293a16947",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "originalDimensions": [
+      720,
+      1280
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/childhood-tkd.webp",
+    "bytes": 59384,
+    "sha256": "b299abb52bf7192daa9f9140ecda113dd1667c1ec2e6652cc452e41b32a2a549",
+    "candidate": "48df758edefb1867.webp",
+    "candidateBytes": 39974,
+    "candidateSha256": "719c74274a02cc2d50b77c59be18e555ecdfa83a659c38fd3cfbe44d3a8e5a9f",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1050,
+      1400
+    ],
+    "originalDimensions": [
+      1050,
+      1400
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/childhood.webp",
+    "bytes": 192684,
+    "sha256": "1fd6bb80e0f6ff6c24ed8b35bfd3c0ca21055b608654b5f653e2069dc0c33676",
+    "candidate": "0565c556137b51e2.webp",
+    "candidateBytes": 176392,
+    "candidateSha256": "9df669c19ac63cd02a4f6611a8e63095b087ff82b3abe3ac01a185dbfba5aef9",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      900,
+      1200
+    ],
+    "originalDimensions": [
+      900,
+      1200
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/childhood-surf.webp",
+    "bytes": 86952,
+    "sha256": "bd931ded64ee19a99e2937c97a01e4bfe6867e4760fb644689eab3b53b9a29e4",
+    "candidate": "92417403411b07c3.webp",
+    "candidateBytes": 80462,
+    "candidateSha256": "7fec0062c3ee3f7af9591657e59947610cea0ac6fb56eedba763e34609595621",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      750,
+      1000
+    ],
+    "originalDimensions": [
+      750,
+      1000
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/competition.webp",
+    "bytes": 93990,
+    "sha256": "79855f5bc174908bae09c8c41148b0c458150b00d197b0efd01211c43b50ec13",
+    "candidate": "80ed605d425205b5.webp",
+    "candidateBytes": 84614,
+    "candidateSha256": "755cde648c824b91ed8b42f46302468381a4acb9a3dfa78e95386a9864a94dc8",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1080,
+      834
+    ],
+    "originalDimensions": [
+      1080,
+      834
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/referee.webp",
+    "bytes": 99540,
+    "sha256": "6219461e6133c103c6f69d6b15ece711acd30a95d84215e4f080529ab5abb7b0",
+    "candidate": "904a33d4456a2914.webp",
+    "candidateBytes": 81434,
+    "candidateSha256": "b34b601ce894331461e6fc7cbfe637b78e2cbeef60a683685c155ed18fc29d4d",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1200,
+      900
+    ],
+    "originalDimensions": [
+      1200,
+      900
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/medals.webp",
+    "bytes": 113794,
+    "sha256": "a8550bbbff667fe85ff55eb3b3158605965cd6872c977db672c6e09d1997aad7",
+    "candidate": "fbd6c62c995fd95d.webp",
+    "candidateBytes": 104056,
+    "candidateSha256": "487f43814a345adadf233d7a128c4e6dfcba0e75e59135c89fbeeb20fdbba409",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      540,
+      960
+    ],
+    "originalDimensions": [
+      540,
+      960
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/young-competition.webp",
+    "bytes": 81076,
+    "sha256": "41b6a743353dcc3cb329ea8db9c941f3f0ee2b220729214d246aca5fcf21b8b0",
+    "candidate": "2af0ad3026d439d3.webp",
+    "candidateBytes": 73696,
+    "candidateSha256": "e7ae37aa94793a4b154c5c77fe72f016c79b42415ff1807baccc95956aa17dab",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      786,
+      1400
+    ],
+    "originalDimensions": [
+      786,
+      1400
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/hospital.webp",
+    "bytes": 79914,
+    "sha256": "973bb93763e19b9e94e4420ce4d51a513f146967e64d34d2142028bb239d0ac3",
+    "candidate": "b2c827ebaf3e275d.webp",
+    "candidateBytes": 70656,
+    "candidateSha256": "5b6fa2aacfe167a360da5377aabf719a9dbe39d7ecf80fa51c64dc7a5522eb64",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1600,
+      800
+    ],
+    "originalDimensions": [
+      1600,
+      800
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/rehab-standing.webp",
+    "bytes": 58524,
+    "sha256": "ffd9c6021173d4ae692143f943d64c34ad8e381d34c827b13749fe5194bc431e",
+    "candidate": "1b6c76a1de924661.webp",
+    "candidateBytes": 47542,
+    "candidateSha256": "4714b4e9feb24cbb18e62140dec5ab8a11fe8dca124778dc30947c96a76807fa",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      850,
+      1500
+    ],
+    "originalDimensions": [
+      850,
+      1500
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/rehab-school.webp",
+    "bytes": 35114,
+    "sha256": "304f2ce67e6db02818387a0bec8212bc13baa06e56b17515bb7b919731cbe1b8",
+    "candidate": "01eaf266d01ae208.webp",
+    "candidateBytes": 28394,
+    "candidateSha256": "345e5318bfbb93508efb71919ebe7eccf943208a2a6f28dd2e9568ba72ca81c3",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      788,
+      1400
+    ],
+    "originalDimensions": [
+      788,
+      1400
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/studying.webp",
+    "bytes": 58472,
+    "sha256": "ef144a716b8f9ac6a3ded0ab11b402434153f35feb47c3de5ef26264881aef30",
+    "candidate": "67e4b819a729c58d.webp",
+    "candidateBytes": 51204,
+    "candidateSha256": "2f4a67f708dcf6e0012a0951a44850351faced64201e89e8b1e36cf2f1fa7498",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      900,
+      1600
+    ],
+    "originalDimensions": [
+      900,
+      1600
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/recognition.webp",
+    "bytes": 110778,
+    "sha256": "e259c5f43fd0516bf0ad86502bd54a7b003d7a6e16a1b34f987dd75f650609fc",
+    "candidate": "452d76fb9fecf6a5.webp",
+    "candidateBytes": 100280,
+    "candidateSha256": "85dda76fbb68e02738238a87ac8ea7f1e56ab3accaa55224cd5e6050fa34e5c5",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1210,
+      908
+    ],
+    "originalDimensions": [
+      1210,
+      908
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/coaching.webp",
+    "bytes": 57856,
+    "sha256": "34dd12207aa375812547559bad991970761e5c6ec434054e7f238a58d33b5f90",
+    "candidate": "90cd47db03a11ecc.webp",
+    "candidateBytes": 48482,
+    "candidateSha256": "c7c32aa662f6be73013d18945fc8705cf38654b262fd053a411ef025ac550cf2",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      900,
+      1600
+    ],
+    "originalDimensions": [
+      900,
+      1600
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/call-jose.webp",
+    "bytes": 50206,
+    "sha256": "0bed2ef1703a8a36f89919f5320282c132df3c27d182c20983c65fde1c485c81",
+    "candidate": "b5865369c79e8f54.webp",
+    "candidateBytes": 44690,
+    "candidateSha256": "c08aef121586c061d4986483eadbc8d4996591cab1ec6e1a89100cc789adb115",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      942,
+      1000
+    ],
+    "originalDimensions": [
+      942,
+      1000
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/call-miguel-private.webp",
+    "bytes": 45012,
+    "sha256": "12d161f0c7d19e41f25355c1921903b08f141d0f598077ff7477bea0b1bf99ab",
+    "candidate": "80b86e432281ba4f.webp",
+    "candidateBytes": 38502,
+    "candidateSha256": "5dbdbbd82989ae88f4d13fa54387a53dcb31ddd3f164a7ada0ae3cb0fcd98af8",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1200,
+      397
+    ],
+    "originalDimensions": [
+      1200,
+      397
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/planning.webp",
+    "bytes": 63140,
+    "sha256": "264043136de708dc48b9659cfef9f390039b7e4cdd0e16e859c9de3edb54a04e",
+    "candidate": "8af9d2296744af6a.webp",
+    "candidateBytes": 57804,
+    "candidateSha256": "85cb1cb976bf8a7a2ee71199d8f6f81ed243a8f1b939e60a09f24c84e168babc",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      540,
+      960
+    ],
+    "originalDimensions": [
+      540,
+      960
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/history/hospital-portrait.webp",
+    "bytes": 60572,
+    "sha256": "be75802e8293f27d11bee000e6db0feb2f2eda88715cf620e44bc3924b2e16ef",
+    "candidate": "da0e7e94c49944cc.webp",
+    "candidateBytes": 47042,
+    "candidateSha256": "835602b7f362b082de18503adc27bd9a1a009419e5db6aa75f39feaa85463c12",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      800,
+      1200
+    ],
+    "originalDimensions": [
+      800,
+      1200
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Captura App Logros.jpeg",
+    "bytes": 75706,
+    "sha256": "6beafe505c769dadc779ee4f3d22ba46b9c75943b53348decbc5d6d693dc3f9b",
+    "candidate": "83048e98d614a547.webp",
+    "candidateBytes": 39896,
+    "candidateSha256": "5a707de33eeecf4918bf2727620e048386db56ef7e9e02ea9ac4bd5affebc0d1",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      945,
+      2048
+    ],
+    "originalDimensions": [
+      945,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Captura App Portada.jpeg",
+    "bytes": 49270,
+    "sha256": "09d03fa9a23e52f8615bac04791bf492e5e836e8722358d45cdad523dadce436",
+    "candidate": "babf762c35302094.webp",
+    "candidateBytes": 21432,
+    "candidateSha256": "e684430f87f02542f33d9cdca9b8ad0c6024e0a818f29819f49262a80261ee73",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      945,
+      2048
+    ],
+    "originalDimensions": [
+      945,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Captura App Ejercicio.jpeg",
+    "bytes": 110386,
+    "sha256": "f56793dd9fec33c3916d0501acaed64a6915839bdf89d145274dd1a45bea5466",
+    "candidate": "a5f2f040dfe1e837.webp",
+    "candidateBytes": 64210,
+    "candidateSha256": "ed53328f268c9f8db7845656435c784f11200bd3de0d9056af3e49f5899c2c44",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      945,
+      2048
+    ],
+    "originalDimensions": [
+      945,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/media/images/Captura App Recap.jpeg",
+    "bytes": 114249,
+    "sha256": "32b1d2a6ec6219dd9d89c6cbd95f03b652e32209c9eae35ebe33ad0584677437",
+    "candidate": "70f24fd14ca8eb6b.webp",
+    "candidateBytes": 60890,
+    "candidateSha256": "145c190b73da20f938ecd551d1648b092a9d6d9437c87368d6fe28b4aa03d161",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      945,
+      2048
+    ],
+    "originalDimensions": [
+      945,
+      2048
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/app-film/exom-launch-16x9-poster.jpg",
+    "bytes": 142860,
+    "sha256": "97727d108f3ebea01a5e1a4ff0e5b35a8dc010cb8e4e7880e12680976b4a05dc",
+    "candidate": "588310e02bc5adef.webp",
+    "candidateBytes": 51260,
+    "candidateSha256": "588310e02bc5adef0d578dc6733fa532695bf5ff1ed4dcb58a50bb92d48ac41c",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "originalDimensions": [
+      1920,
+      1080
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  },
+  {
+    "name": "assets/app-film/exom-launch-9x16-poster.jpg",
+    "bytes": 173755,
+    "sha256": "8406d671a52543a5471d58626974a03c46232231098d6206bae0c2f8b68c9aa2",
+    "candidate": "90ffb2da5951648a.webp",
+    "candidateBytes": 64002,
+    "candidateSha256": "90ffb2da5951648a2b517655030f7acc39af2fdfb8f94ceab4ab1ed3a1715330",
+    "quality": 80,
+    "maxBytes": 500000,
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "originalDimensions": [
+      1080,
+      1920
+    ],
+    "resized": false,
+    "sameIcc": true,
+    "sameAlpha": true,
+    "preservedAspect": true,
+    "status": "APPROVED_WEBP_Q80"
+  }
+]

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; form-action 'self'; object-src 'none'; base-uri 'none'">
+  <title>EXOM V4 — Tu cambio. Con mi método.</title>
+  <link rel="preload" href="assets/barlow-condensed-800.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="navigation.js"></script>
+  <script defer src="form-rules.js"></script>
+  <script defer src="form-client.js"></script>
+  <script defer src="assets/vendor/gsap.min.js"></script>
+  <script defer src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script defer src="assets/vendor/SplitText.min.js"></script>
+  <script defer src="motion.js"></script>
+  <script defer src="welcome.js"></script>
+  <script defer src="gallery-videos.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="gallery-shared.js"></script>
+</head>
+<body>
+  <dialog class="welcome" id="welcome" aria-labelledby="welcome-message">
+    <div class="welcome-copy"><div class="welcome-logo-mask"><span class="wordmark welcome-logo" aria-label="EXOM">E<span>X</span>OM</span></div><p id="welcome-message">Vamos a por tu cambio.</p></div>
+    <button class="text-button welcome-skip" id="welcome-skip" type="button" autofocus>Omitir</button>
+  </dialog>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="preview-notice">Prototipo V4 · Formulario local · Sin correos reales</div>
+  <header class="header">
+    <a href="#inicio" class="wordmark brand-lockup" aria-label="EXOM, inicio"><img class="brand-symbol" src="assets/exom-balance.svg" width="120" height="112" alt=""><span class="brand-lettering" aria-hidden="true">E<span>X</span>OM</span></a>
+    <nav id="navigation" aria-label="Navegación principal"><a href="index.html#metodo" aria-current="page">El método</a><a href="historia.html">Mi historia</a><a href="app.html">La app</a><a href="index.html#solicitud" class="nav-cta">Empezar <span aria-hidden="true">↗</span></a></nav>
+    <div class="header-actions"><button id="motion-toggle" class="text-button" type="button" aria-pressed="false">Pausar efectos</button><button id="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg></button></div>
+  </header>
+  <main id="contenido">
+    <section class="hero hero-centered" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="service-descriptor">Entrenamiento y nutrición online</p>
+      <h1 id="hero-title"><span class="hero-title-part"><span>Tu cambio.</span></span> <span class="hero-title-part"><em>Con mi método.</em></span></h1>
+        <p class="hero-intro">Un plan adaptado a tu vida.<br>Te acompaño para que avances.<br>Sin obsesionarte con el proceso.</p>
+        <a class="button" href="#solicitud">Cuéntame tu objetivo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
+        <p class="small">Empieza con un formulario previo.</p>
+      </div>
+      <div class="hero-media" aria-label="Moi y personas del método entrenando">
+        <div class="hero-brand" aria-hidden="true">EXOM</div>
+        <div class="hero-client"><video class="practice-video" playsinline muted loop preload="none" poster="assets/clients-v1/cristina.webp" aria-label="Persona del método realizando un remo con apoyo" ><source src="assets/clients-v1/cristina.mp4" type="video/mp4"></video></div>
+        <img class="hero-portrait" src="../assets/media/images/derived/foto-portada-moi-transparent.png" alt="Moi, entrenador de EXOM, con su uniforme de taekwondo" width="1086" height="1448" fetchpriority="high">
+        <div class="hero-client"><video class="practice-video" playsinline muted loop preload="none" poster="assets/clients-v1/carlos.webp" aria-label="Persona del método realizando curl con mancuernas" ><source src="assets/clients-v1/carlos.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="hero-bottom"><span>Tu vida. Tu punto de partida.</span><a href="#metodo">Así funciona EXOM <span aria-hidden="true">↓</span></a></div>
+    </section>
+
+    <section id="metodo" aria-labelledby="method-title">
+      <div class="section method">
+        <div class="section-heading"><h2 id="method-title">Un plan para ti.<br><em>No al revés.</em></h2><p>Mi trabajo no termina cuando recibes tu planificación. Te acompaño para llevarla a tu día a día y la ajusto contigo según tu progreso.</p></div>
+        <div class="method-layout">
+          <img class="method-photo" src="../assets/media/images/Moi trabajando escuela.jpg" alt="Moi trabajando con una tableta en la escuela" width="4536" height="8064" loading="lazy">
+          <ol class="method-steps">
+            <li><span class="step-number">01</span><div><h3>Parto de tu realidad.</h3><p>Preparo tu plan de entrenamiento y nutrición teniendo en cuenta tu situación, tus objetivos, tu tiempo y el material que tienes.</p></div></li>
+            <li><span class="step-number">02</span><div><h3>Sabes qué hacer.</h3><p>En la app tienes el entrenamiento y la nutrición que preparo para ti, con las indicaciones que necesitas.</p><div class="app-screens"><figure><span class="app-capture"><img src="../assets/media/images/Captura App Entreno.jpeg" alt="Captura real de la app EXOM: tu entrenamiento, con datos de demostración" loading="lazy"></span><figcaption>Tu entrenamiento</figcaption></figure><figure><span class="app-capture"><img src="../assets/media/images/Captura App Comida.jpeg" alt="Captura real de la app EXOM: tu alimentación, con datos de demostración" loading="lazy"></span><figcaption>Tu alimentación</figcaption></figure><figure><span class="app-capture"><img src="../assets/media/images/Captura App Progreso.jpeg" alt="Captura real de la app EXOM: tu evolución, con datos de demostración" loading="lazy"></span><figcaption>Tu evolución</figcaption></figure></div><p class="small">Capturas reales de la app · Datos de demostración.</p></div></li>
+            <li><span class="step-number">03</span><div><h3>Lo ajusto contigo.</h3><p>Puedes hablar conmigo y, cada dos semanas, tenemos una llamada para revisar cómo vas y ajustar tu plan.</p></div></li>
+          </ol>
+        </div>
+        <p class="small method-note">Seguimiento continuo, sin respuesta inmediata.</p>
+      </div>
+    </section>
+
+    <section class="section offer client-gallery" id="personas" aria-label="Entrenamientos de personas del método">
+      <div class="x-gallery" id="galeria" aria-label="Galería de entrenamientos de personas del método">
+        <div class="gallery-heading"><h3>Tu plan.<br><em>En movimiento.</em></h3><p>Personas reales.<br>Cada una, su proceso.</p></div>
+        <div class="ribbon-space"><div class="ribbon ribbon-back"><div class="ribbon-track" data-direction="-1"><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/carlos-poster.webp" alt="Persona del método realizando peso muerto con barra" loading="lazy" decoding="async"><video class="gallery-video" data-clip="carlos" data-src="assets/gallery-clips-v1/carlos.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/cristina-poster.webp" alt="Persona del método realizando un remo con apoyo" loading="lazy" decoding="async"><video class="gallery-video" data-clip="cristina" data-src="assets/gallery-clips-v1/cristina.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jesus-poster.webp" alt="Persona del método trabajando con mancuernas" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jesus" data-src="assets/gallery-clips-v1/jesus.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jose-poster.webp" alt="Persona del método realizando un ejercicio de movilidad" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jose" data-src="assets/gallery-clips-v1/jose.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/lucia-poster.webp" alt="Persona del método realizando un jalón" loading="lazy" decoding="async"><video class="gallery-video" data-clip="lucia" data-src="assets/gallery-clips-v1/lucia.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/miguel-poster.webp" alt="Persona del método entrenando con barra" loading="lazy" decoding="async"><video class="gallery-video" data-clip="miguel" data-src="assets/gallery-clips-v1/miguel.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/carlos-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="carlos" data-src="assets/gallery-clips-v1/carlos.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/cristina-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="cristina" data-src="assets/gallery-clips-v1/cristina.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jesus-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jesus" data-src="assets/gallery-clips-v1/jesus.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jose-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jose" data-src="assets/gallery-clips-v1/jose.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/lucia-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="lucia" data-src="assets/gallery-clips-v1/lucia.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/miguel-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="miguel" data-src="assets/gallery-clips-v1/miguel.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div></div></div><div class="ribbon ribbon-front"><div class="ribbon-track" data-direction="1"><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jose-poster.webp" alt="Persona del método realizando un ejercicio de movilidad" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jose" data-src="assets/gallery-clips-v1/jose.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/lucia-poster.webp" alt="Persona del método realizando un jalón" loading="lazy" decoding="async"><video class="gallery-video" data-clip="lucia" data-src="assets/gallery-clips-v1/lucia.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/miguel-poster.webp" alt="Persona del método entrenando con barra" loading="lazy" decoding="async"><video class="gallery-video" data-clip="miguel" data-src="assets/gallery-clips-v1/miguel.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/carlos-poster.webp" alt="Persona del método realizando peso muerto con barra" loading="lazy" decoding="async"><video class="gallery-video" data-clip="carlos" data-src="assets/gallery-clips-v1/carlos.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/cristina-poster.webp" alt="Persona del método realizando un remo con apoyo" loading="lazy" decoding="async"><video class="gallery-video" data-clip="cristina" data-src="assets/gallery-clips-v1/cristina.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jesus-poster.webp" alt="Persona del método trabajando con mancuernas" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jesus" data-src="assets/gallery-clips-v1/jesus.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jose-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jose" data-src="assets/gallery-clips-v1/jose.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/lucia-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="lucia" data-src="assets/gallery-clips-v1/lucia.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/miguel-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="miguel" data-src="assets/gallery-clips-v1/miguel.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/carlos-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="carlos" data-src="assets/gallery-clips-v1/carlos.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/cristina-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="cristina" data-src="assets/gallery-clips-v1/cristina.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="sequence"><img class="sequence-poster" src="assets/gallery-client-v1/jesus-poster.webp" alt="" loading="lazy" decoding="async"><video class="gallery-video" data-clip="jesus" data-src="assets/gallery-clips-v1/jesus.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div></div></div></div>
+      </div>
+    </section>
+
+      <div class="exercise-scene"><div class="immersive-photo"><div class="sequence exercise-sequence"><img class="sequence-poster" src="assets/strategy-training-poster.webp" alt="Moi realizando un peso muerto a una pierna" loading="lazy"><video class="strategy-video" data-src="assets/strategy-training.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div><div class="immersive-copy"><p class="display"><span class="strategy-line"><span>Cada objetivo</span></span><span class="strategy-line"><span class="strategy-connect">necesita una</span></span><span class="strategy-line"><em class="strategy-key">estrategia.<span class="strategy-ink" aria-hidden="true">estrategia.</span></em></span></p><div class="strategy-rule" aria-hidden="true"></div><p class="strategy-note"><span class="sr-only">Saber qué hacer. Construir una rutina propia.</span><span class="strategy-typed" aria-hidden="true" data-copy="Saber qué hacer.&#10;Construir una rutina propia.">Saber qué hacer.&#10;Construir una rutina propia.</span></p></div></div></div>
+    <section id="acompanamiento" aria-labelledby="care-title">
+      <div class="section care-intro"><div class="section-heading"><h2 id="care-title">No solo un plan.<br><em>Estoy al otro lado.</em></h2><p>Puedes contarme cómo te está yendo y compartir tus dudas conmigo. Cada dos semanas hablamos para revisar tu progreso y los ajustes que necesite tu plan.</p></div><p class="small">Acompañamiento online · Seguimiento continuo, sin respuesta inmediata.</p></div>
+      <div class="film-stage" id="entreno"><div class="film-sticky"><div class="film-frame"><div class="sequence film-sequence"><img class="sequence-poster" src="assets/scenes-client-v1/coach/poster.webp" alt="Moi acompañando a una persona durante un ejercicio; imágenes de archivo" loading="lazy"><video class="coach-video" data-src="assets/coaching.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div></div><div class="film-copy"><p class="display film-title film-title-start">Tu plan.<br><em>A tu medida.</em></p><p class="display film-title film-title-end">Y yo,<br><em>a tu lado.</em></p><p class="film-bridge">No tienes que resolverlo todo por tu cuenta.</p></div></div></div>
+      <p class="small coaching-note">Aquí me ves acompañando un ejercicio · Imágenes de archivo. Mi acompañamiento en EXOM es online.</p>
+    </section>
+
+    <section class="section progress" id="progreso" aria-labelledby="progress-title">
+      <div class="section-heading"><h2 id="progress-title">Su progreso.<br><em>En su vida real.</em></h2><p>Te enseño sus procesos: recuperar energía, volver al deporte y construir una rutina propia.</p></div>
+      <div class="case-grid">
+        <article class="case"><div class="case-heading"><h3>José Francisco</h3><span>5 meses</span></div>
+          <div class="comparison" style="--reveal:50%">
+            <img class="before-image" src="assets/jose-before.jpg" alt="José Francisco antes de comenzar" loading="lazy" width="2268" height="4032">
+            <div class="jose-after after-image"><img src="assets/jose-after-embedded.jpg" alt="José Francisco después de su proceso" loading="lazy" width="8064" height="6048"></div>
+            <span class="photo-label label-before">Antes</span><span class="photo-label label-after">Después</span><span class="comparison-line" aria-hidden="true"><span>↔</span></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Mostrar antes de José Francisco" aria-valuetext="50 % antes, 50 % después">
+          </div>
+          
+          
+          <h4>Volver a disfrutar<br>de su día a día.</h4><p>Tras más de veinte años sin practicar deporte, ha creado el hábito de entrenar y recuperado energía para correr y jugar con su hijo.</p><p class="case-metric">≈ 8,6 kg menos · 7,5 cm menos de cintura</p>
+        </article>
+        <article class="case"><div class="case-heading"><h3>Carlos</h3><span>6 meses</span></div>
+          <div class="comparison" id="carlos-comparison" style="--reveal:50%">
+            <img class="before-image carlos-before" src="assets/review/carlos-personas-eliminadas-propuesta.png" alt="Carlos antes, imagen editada para retirar a sus acompañantes" width="1960" height="802" loading="lazy">
+            <div class="after-image carlos-after"><img src="../assets/media/images/Carlos ahora.jpg" alt="Carlos después de su proceso" loading="lazy" width="3840" height="5120"></div>
+            <span class="photo-label label-before">Antes</span><span class="photo-label label-after">Después</span><span class="comparison-line" aria-hidden="true"><span>↔</span></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Mostrar antes de Carlos" aria-valuetext="50 % antes, 50 % después">
+          </div>
+          
+          
+          <h4>Recuperar su<br>vida activa.</h4><p>Con entrenamiento de fuerza y seguimiento, convirtió el ejercicio en un hábito. Hoy vuelve a practicar taekwondo y ha incorporado kickboxing a su rutina.</p><p class="case-metric">≈ 30 kg menos en 6 meses</p>
+        </article>
+        <article class="case"><div class="case-heading"><h3>Miguel</h3><span>3 meses</span></div>
+          <div class="comparison" id="miguel-comparison" style="--reveal:50%">
+            <div class="miguel-photo miguel-before"><img src="assets/progress/miguel-before-approved-v1.png" alt="Miguel antes, imagen editada para recomponer el encuadre" loading="lazy" width="1086" height="1448"></div>
+            <div class="miguel-photo miguel-after after-image"><img src="../assets/media/images/Miguel primo ahora.jpg" alt="Miguel después de su proceso" loading="lazy" width="1152" height="2048"></div>
+            <span class="photo-label label-before">Antes</span><span class="photo-label label-after">Después</span><span class="comparison-line" aria-hidden="true"><span>↔</span></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Mostrar antes de Miguel" aria-valuetext="50 % antes, 50 % después">
+          </div>
+          
+          
+          <h4>Un objetivo.<br>Una nueva rutina.</h4><p>Construyó una rutina de entrenamiento y alimentación para preparar su acceso al ejército. Su proceso fue más allá del cambio físico: consiguió entrar.</p><p class="case-metric">≈ 20 kg menos en 3 meses</p>
+        </article>
+      </div>
+      
+    </section>
+
+    <section class="section client-practice" aria-labelledby="practice-title">
+      <div class="section-heading"><h2 id="practice-title">Cada persona.<br><em>Su proceso.</em></h2><p>Así entrenan algunas de las personas a las que acompaño. Cada una, con su plan y a su ritmo.</p></div>
+      <figure class="pose-triptych" aria-label="Tres personas del método entrenando">
+        <div class="pose-panel pose-panel-1"><video class="practice-video" playsinline muted loop preload="none" poster="assets/clients-v1/jose.webp" aria-label="Entrenamiento real: movilidad en el suelo" ><source src="assets/clients-v1/jose.mp4" type="video/mp4"></video></div>
+        <div class="pose-panel pose-panel-2"><video class="practice-video" playsinline muted loop preload="none" poster="assets/clients-v1/miguel-polea.webp" aria-label="Entrenamiento real: trabajo de pie con polea" ><source src="assets/clients-v1/miguel-polea.mp4" type="video/mp4"></video></div>
+        <div class="pose-panel pose-panel-3"><video class="practice-video" playsinline muted loop preload="none" poster="assets/clients-v1/lucia.webp" aria-label="Entrenamiento real: jalón" ><source src="assets/clients-v1/lucia.mp4" type="video/mp4"></video></div>
+        <figcaption>Entrenamientos reales · EXOM</figcaption><button id="practice-toggle" type="button" aria-pressed="false">Pausar vídeos</button>
+      </figure>
+    </section>
+
+    <section class="section testimonials" id="testimonios" aria-labelledby="testimonials-title" hidden><div class="section-heading"><h2 id="testimonials-title">EXOM,<br><em>en su propia voz.</em></h2><p>Conoce cómo viven el método las personas a las que acompaño.</p></div><div class="testimonial-grid"><article class="testimonial-slot" data-testimonial-slot><div class="testimonial-placeholder"><span>30–60 s</span><p>Su experiencia.<br>En primera persona.</p><small>Vídeo pendiente de incorporar</small></div></article><article class="testimonial-slot" data-testimonial-slot><div class="testimonial-placeholder"><span>30–60 s</span><p>Su experiencia.<br>En primera persona.</p><small>Vídeo pendiente de incorporar</small></div></article><article class="testimonial-slot" data-testimonial-slot><div class="testimonial-placeholder"><span>30–60 s</span><p>Su experiencia.<br>En primera persona.</p><small>Vídeo pendiente de incorporar</small></div></article></div></section>
+
+    <section class="section story story-expanded" id="historia" aria-labelledby="story-title">
+      <figure class="story-photo"><img src="../assets/media/images/Moi vestido taekwondo.png" alt="Moi con su uniforme de taekwondo" width="1024" height="1536" loading="lazy"></figure>
+      <div class="story-copy"><h2 id="story-title">Soy Moi.<br><em>Te acompaño.</em></h2><p>Soy Moisés Sánchez. Mi trayectoria deportiva y una lesión que me obligó a parar cambiaron mi forma de entender el entrenamiento: dar sentido a cada decisión, planificar y acompañar.</p><p>Hoy esa experiencia está al servicio de tu proceso. Un plan adaptado a tu vida para avanzar y recuperar la constancia sin obsesionarte.</p><a class="text-link" href="historia.html">Conoce mi historia <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a></div>
+      <div class="story-formation" aria-labelledby="formation-title">
+        <h3 id="formation-title">Mi formación,<br><em>al servicio de tu cambio.</em></h3>
+        <div class="qualification-group"><h4>Formación profesional</h4><ul>
+          <li class="qualification-item"><span>Técnico Superior en Acondicionamiento Físico <small>TSAF</small></span></li>
+          <li class="qualification-item"><span>Técnico en Guía en el Medio Natural y de Tiempo Libre <small>TEGU</small></span></li>
+        </ul></div>
+        <div class="qualification-group"><h4>Especialización <span>ISAF</span></h4><ul>
+          <li class="qualification-item"><span>Curso Europeo de Entrenador Personal</span></li>
+          <li class="qualification-item"><span>Técnico en Fisiología Deportiva</span></li>
+          <li class="qualification-item"><span>Técnico Especialista en Entrenamiento Funcional</span></li>
+          <li class="qualification-item"><span>Asesor en Nutrición Deportiva</span></li>
+        </ul></div>
+        <div class="qualification-group"><h4>Trayectoria deportiva</h4><ul>
+          <li class="qualification-item"><span>Cinturón negro 3.º DAN</span></li>
+          <li class="qualification-item"><span>Entrenador nacional de taekwondo</span></li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section class="section faq" id="dudas" aria-labelledby="faq-title">
+      <div class="faq-heading"><h2 id="faq-title">Dudas antes<br><em>de empezar.</em></h2><p>Lo importante, claro.<br>Sin letra pequeña en la conversación.</p><a class="text-link" href="#solicitud">Cuéntame tu situación <span aria-hidden="true">↗</span></a></div>
+      <div class="faq-list">
+        <details open><summary>¿Cuánto cuesta EXOM y qué incluye?<span class="disclosure-icon" aria-hidden="true"></span></summary><div class="faq-answer">
+          <h3>Programa mensual en PDF — 19,90 €/mes</h3><p>Incluye planificación de entrenamiento con series, repeticiones, descansos y esfuerzo indicado para cada ejercicio; sistema de progresión, guía técnica, registro de entrenamientos y guía básica de nutrición. Cada mes recibirás un nuevo bloque para seguir avanzando.</p>
+          <h3>Acompañamiento personalizado</h3><p>Preparo tu entrenamiento y nutrición, adaptados a ti. Tienes acceso a la app, seguimiento continuo y contacto directo conmigo, con llamadas cada dos semanas. El contacto no implica respuesta inmediata.</p>
+          <ul class="prices"><li><strong>3 meses</strong><span>600 €.</span></li><li><strong>6 meses</strong><span>1.150 € en un pago, o 1.200 € fraccionados: dos cuotas de 600 € —primer y tercer mes— o tres cuotas mensuales de 400 €.</span></li><li><strong>1 año</strong><span>2.000 € en un pago, o 2.100 € fraccionados: dos cuotas de 1.050 € —primer y tercer mes— o cuatro cuotas mensuales de 525 €.</span></li></ul><p class="vat">Todos los precios incluyen IVA.</p>
+        </div></details>
+        <details><summary>¿Puedo empezar si llevo tiempo sin entrenar o me cuesta ser constante?<span class="disclosure-icon" aria-hidden="true"></span></summary><div class="faq-answer"><p>Sí. No necesitas llegar en forma ni tener una rutina perfecta para empezar.</p><p>En el acompañamiento personalizado parto de tu nivel, tu situación y el tiempo que tienes disponible. El objetivo es construir una rutina que puedas mantener, avanzar paso a paso y recuperar la constancia sin obsesionarte.</p></div></details>
+        <details><summary>¿Necesito ir al gimnasio o puedo entrenar en casa?<span class="disclosure-icon" aria-hidden="true"></span></summary><div class="faq-answer"><p>Puedes entrenar tanto en casa como en el gimnasio. En el acompañamiento personalizado adapto tu planificación al lugar donde entrenas, al material disponible y a tus objetivos.</p><p>No necesitas tener acceso a un gimnasio para empezar.</p></div></details>
+        <details><summary>¿Cómo se adapta el entrenamiento y la alimentación a mis horarios?<span class="disclosure-icon" aria-hidden="true"></span></summary><div class="faq-answer"><p>En el acompañamiento personalizado tengo en cuenta tus horarios, tu rutina y el tiempo que puedes dedicar al entrenamiento para organizar un plan realista. La alimentación también se adapta a tu día a día.</p><p>La idea no es que organices toda tu vida alrededor de un plan, sino que tengas una estructura que puedas mantener.</p></div></details>
+        <details><summary>¿Cómo funciona el seguimiento online y el contacto contigo?<span class="disclosure-icon" aria-hidden="true"></span></summary><div class="faq-answer"><p>En el acompañamiento personalizado tendrás acceso a la app para consultar tu planificación y llevar el registro de tu progreso, además de contacto directo conmigo para compartir dudas y cómo te está yendo.</p><p>Cada dos semanas tendremos una llamada para revisar tu evolución y los ajustes que necesite tu plan.</p><p>El seguimiento es continuo, pero no implica respuesta inmediata.</p></div></details>
+      </div>
+    </section>
+
+    <section class="section application" id="solicitud" aria-labelledby="application-title">
+      <div class="application-copy"><h2 id="application-title">Tu cambio<br>empieza<br><em>contigo.</em></h2><p>Cuéntame tu punto de partida para valorar cómo puedo ayudarte.</p><p class="small">Este formulario es el paso previo a hablar conmigo por WhatsApp. No es una compra.</p></div>
+      <form id="application-form" class="demo-form" aria-label="Solicitud de acompañamiento" action="api/solicitudes" method="post" autocomplete="off" novalidate>
+        <p class="demo-note">Prueba local: utiliza solo datos ficticios. Los envíos de correo están desactivados.</p>
+        <div hidden><label for="form-website">Deja este campo vacío</label><input id="form-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <ol class="form-progress" aria-label="Pasos del formulario"><li aria-current="step">Sobre ti</li><li>Tus objetivos</li><li>Tu siguiente paso</li></ol>
+        <p id="step-count" class="small" aria-live="polite">Paso 1 de 3 · Todos los campos son obligatorios</p>
+        <div class="form-step" data-step="0"><h3 tabindex="-1">Sobre ti</h3><fieldset disabled><legend class="sr-only">Datos personales</legend>
+          <label for="demo-name">¿Cómo te llamas? *</label><input id="demo-name" name="name" maxlength="100" type="text" placeholder="Tu nombre" autocomplete="off" required>
+          <div class="field-pair"><div><label for="demo-age">¿Qué edad tienes? *</label><input id="demo-age" name="age" type="number" placeholder="Edad" min="0" max="120" step="1" aria-describedby="demo-age-help demo-age-message" required><p class="small field-help" id="demo-age-help">Si tienes menos de 18 años, debe contactar con EXOM tu padre, madre o tutor. No envíes tus respuestas por este formulario.</p><p class="small" id="demo-age-message" aria-live="polite"></p></div><div><label for="demo-residence-country">País de residencia habitual *</label><input id="demo-residence-country" name="country" maxlength="80" type="text" placeholder="País donde vives" autocomplete="off" required></div></div>
+          <label for="demo-phone">¿Cuál es tu número de WhatsApp? *</label><input id="demo-phone" name="phone" maxlength="32" type="tel" placeholder="Incluye + y el prefijo de tu país" autocomplete="off" required>
+          <fieldset class="choice-group" aria-describedby="demo-occupation-help demo-occupation-message"><legend>¿A qué te dedicas actualmente? *</legend><p class="small" id="demo-occupation-help">Puedes marcar estudio y trabajo si compaginas ambos.</p><label><input type="checkbox" name="occupation" value="study" aria-describedby="demo-occupation-message"> Estudio</label><label><input type="checkbox" name="occupation" value="work" aria-describedby="demo-occupation-message"> Trabajo</label><label><input type="checkbox" name="occupation" value="other" aria-describedby="demo-occupation-message"> Otra situación</label><p class="small" id="demo-occupation-message" aria-live="polite"></p></fieldset>
+        </fieldset></div>
+        <div class="form-step" data-step="1" hidden><h3 tabindex="-1">Tus objetivos</h3><fieldset disabled><legend class="sr-only">Objetivos</legend>
+          <fieldset class="choice-group"><legend>¿Cuál es tu principal objetivo? *</legend><label><input type="radio" name="goal" value="muscle" required> Ganar masa muscular</label><label><input type="radio" name="goal" value="fat" required> Perder grasa</label><label><input type="radio" name="goal" value="recomposition" required> Recomposición corporal: perder grasa y ganar músculo</label><label><input type="radio" name="goal" value="other" required> Otro objetivo</label></fieldset>
+          <fieldset class="choice-group" id="demo-food" aria-describedby="demo-food-help demo-food-medical"><legend>¿Qué te cuesta más de la alimentación a la hora de alcanzar tu objetivo? *</legend><p class="small field-help" id="demo-food-help">Elige la opción que mejor describe tu principal dificultad.</p><p class="small field-help" id="demo-food-medical">No incluyas diagnósticos, medicación ni otra información médica.</p><label><input type="radio" name="food" value="quantities" required> Las cantidades</label><label><input type="radio" name="food" value="schedules" required> Los horarios</label><label><input type="radio" name="food" value="preparation" required> Preparar las comidas</label><label><input type="radio" name="food" value="consistency" required> Mantener la constancia</label><label><input type="radio" name="food" value="other" required> Otra dificultad</label><label><input type="radio" name="food" value="none" required> Ninguna dificultad</label></fieldset>
+          <label for="demo-goal">¿Qué te gustaría conseguir con EXOM? *</label><p class="small field-help" id="demo-goal-help">Por ejemplo, organizar mejor tus entrenamientos, mantener la constancia o aprender a entrenar.</p><p class="small field-help" id="demo-goal-medical">No incluyas diagnósticos, medicación ni otra información médica.</p><textarea id="demo-goal" name="expectations" maxlength="300" rows="3" placeholder="Cuéntamelo con tus propias palabras" aria-describedby="demo-goal-help demo-goal-medical" required></textarea>
+        </fieldset></div>
+        <div class="form-step" data-step="2" hidden><h3 tabindex="-1">Tu siguiente paso</h3><fieldset disabled><legend class="sr-only">Siguiente paso</legend>
+          <fieldset class="choice-group"><legend>¿Qué crees que te está frenando? *</legend><p class="small">Puedes elegir varias opciones.</p><label><input type="checkbox" name="obstacles" value="consistency"> Me cuesta mantener la constancia</label><label><input type="checkbox" name="obstacles" value="plan"> No tengo un plan claro</label><label><input type="checkbox" name="obstacles" value="knowledge"> Me falta conocimiento para saber cómo avanzar</label><label><input type="checkbox" name="obstacles" value="other"> Otro motivo</label></fieldset>
+          <fieldset class="choice-group"><legend>¿Cómo te sientes con tu físico actualmente? *</legend><label><input type="radio" name="condition" value="change" required> No me siento a gusto y quiero cambiarlo</label><label><input type="radio" name="condition" value="improve" required> Me cuido, pero podría hacerlo mejor</label><label><input type="radio" name="condition" value="maximize" required> Estoy a gusto, pero quiero llevarlo al máximo</label></fieldset>
+          <fieldset class="choice-group"><legend>¿Cuándo te gustaría empezar? *</legend><label><input type="radio" name="start" value="soon" required> Quiero empezar cuanto antes</label><label><input type="radio" name="start" value="thinking" required> Necesito pensarlo</label><label><input type="radio" name="start" value="information" required> Por ahora, solo quiero recibir información</label></fieldset>
+        </fieldset></div>
+        <div class="form-buttons"><button type="button" id="form-back" class="text-button" hidden>Volver</button><button type="submit" id="form-next" class="button">Continuar <span aria-hidden="true">→</span></button></div>
+        <p id="form-message" role="status"></p><div class="form-privacy small" aria-label="Información básica de privacidad">
+          <p>Moisés Sánchez Román (EXOM) tratará tus datos para valorar tu solicitud, preparar tu propuesta y contactarte por WhatsApp, a tu petición (medidas precontractuales, art. 6.1.b RGPD). Intervienen proveedores con transferencias a EE. UU. Puedes ejercer tus derechos en <a href="mailto:exom.method@gmail.com">exom.method@gmail.com</a>. <a href="privacy.html#solicitudes-web">Política de privacidad</a>.</p>
+          <details>
+            <summary>Más sobre tus datos</summary>
+            <p>La prueba local no comunica respuestas a proveedores externos. Este es el flujo preparado para cuando se habilite el envío real:</p>
+            <p><strong>Proveedores:</strong> Vercel, Resend, Gmail y WhatsApp. <strong>Conservación:</strong> máximo 90 días desde el último intercambio real sobre tu solicitud si no contratas; no hay borrado automático.</p>
+            <p>Si no respondes a las preguntas, no podremos valorar tu solicitud.</p>
+          </details>
+        </div>
+        <noscript><p>Activa JavaScript para utilizar el formulario. Sin JavaScript no se envían respuestas; puedes contactar con EXOM por correo.</p></noscript>
+      </form>
+    </section>
+  </main>
+  <footer><div class="footer-top"><a class="wordmark brand-lockup" href="#inicio" aria-label="EXOM, volver al inicio"><img class="brand-symbol" src="assets/exom-balance.svg" width="120" height="112" alt=""><span class="brand-lettering" aria-hidden="true">E<span>X</span>OM</span></a><p>Fuerza y transformación<br>con método.</p><a class="text-link" href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><span>EXOM · Prototipo local, no publicado</span><nav class="footer-links" aria-label="Ayuda y legal"><a href="support.html">Ayuda</a><a href="privacy.html">Privacidad</a><a href="eliminar-datos.html">Eliminar datos</a><a href="aviso-legal.html">Aviso legal</a></nav></div><div class="creator-credit"><span>Diseño y desarrollo · <strong>Carlos Sánchez Román</strong></span><a href="https://github.com/carsan-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Carlos Sánchez Román" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.12.68-3.78-1.32-3.78-1.32-.51-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.49-.28-5.1-1.24-5.1-5.54 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.31-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.07c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></a><a href="https://csroman-dev.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio de Carlos Sánchez Román" title="Portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></svg></a></div></footer>
+</body>
+</html>

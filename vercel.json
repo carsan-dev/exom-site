@@ -1,5 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node REDESIGN/prototype-v4/build-release.cjs",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": true,
   "headers": [
