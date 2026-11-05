@@ -5,6 +5,12 @@ const vm = require('node:vm');
 const html = fs.readFileSync(__dirname + '/index.html', 'utf8');
 const css = fs.readFileSync(__dirname + '/styles.css', 'utf8');
 const app = fs.readFileSync(__dirname + '/app.js', 'utf8');
+const progress = html.slice(html.indexOf('<section class="section progress"'), html.indexOf('<section class="section client-practice"'));
+const progressPhotos = progress.match(/<img\b[^>]*>/g) || [];
+assert.equal(progressPhotos.length, 6);
+assert.ok(progressPhotos.every(tag => tag.includes('loading="lazy"') && tag.includes('decoding="async"')), 'Progress photos decode without holding up unrelated paints; keep lazy loading');
+assert.ok(!html.includes('<figcaption>Entrenamientos reales · EXOM</figcaption>'), 'Omit the redundant training caption');
+assert.ok(html.includes('<button id="practice-toggle" type="button" aria-pressed="false">Pausar vídeos</button>'), 'Keep the accessible playback control');
 const titles = [
   'Técnico Superior en Acondicionamiento Físico',
   'Técnico en Guía en el Medio Natural y de Tiempo Libre',

@@ -19,7 +19,7 @@
     const bank = document.createElement('div');
     bank.hidden = true; bank.setAttribute('aria-hidden', 'true');
     document.body.append(bank);
-    let active = true;
+    let active = true, near = false, warmupTimer = null;
     const enabled = () => active && !document.hidden && document.body.dataset.motion === 'on';
     function fail() {
       if (!active) return;
@@ -46,6 +46,25 @@
         if (active && state.wanted) fail();
       });
     }
+    function prepare(source) {
+      source.video.preload = 'auto';
+      source.video.src = source.src;
+      source.video.load();
+    }
+    function scheduleWarmup() {
+      const next = [...sources.values()].find(source => !source.video.getAttribute('src'));
+      if (!enabled() || !near || !next) {
+        clearTimeout(warmupTimer); warmupTimer = null;
+      } else if (warmupTimer === null) {
+        // Spread decoder startup instead of moving one six-video burst earlier.
+        warmupTimer = setTimeout(() => {
+          warmupTimer = null;
+          if (!enabled() || !near) return;
+          try { if (!next.video.getAttribute('src')) prepare(next); sync(); }
+          catch { fail(); }
+        }, 120);
+      }
+    }
     function sync() {
       if (!active) return;
       try {
@@ -56,10 +75,11 @@
         }
         for (const source of sources.values()) {
           if (source.wanted) {
-            if (!source.video.getAttribute('src')) source.video.src = source.src;
+            if (!source.video.getAttribute('src')) prepare(source);
             play(source.video, source);
           } else pause(source.video, source);
         }
+        scheduleWarmup();
         for (const [video, state] of states) {
           if (state.wanted && state.source.stream) {
             if (video.srcObject !== state.source.stream) video.srcObject = state.source.stream;
@@ -118,7 +138,8 @@
     function stop() {
       if (!active) return;
       active = false;
-      visibility.disconnect(); inventoryObserver.disconnect(); motionObserver.disconnect();
+      clearTimeout(warmupTimer); warmupTimer = null;
+      visibility.disconnect(); nearby.disconnect(); inventoryObserver.disconnect(); motionObserver.disconnect();
       document.removeEventListener('visibilitychange', sync);
       for (const [video, state] of states) {
         remove(video, state);
@@ -141,6 +162,11 @@
       }
       sync();
     }, { threshold: [0, .2] });
+    const nearby = new IntersectionObserver(entries => {
+      near = entries.some(entry => entry.isIntersecting);
+      sync();
+    }, { rootMargin: '1200px 0px' });
+    nearby.observe(gallery);
     const inventoryObserver = new MutationObserver(inventory);
     const motionObserver = new MutationObserver(sync);
     tracks.forEach(track => inventoryObserver.observe(track, { childList: true }));

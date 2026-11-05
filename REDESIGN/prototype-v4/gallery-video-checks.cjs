@@ -77,6 +77,10 @@ module.exports = async function checkGalleryVideos() {
   const previousV3 = fs.readFileSync(path.resolve(__dirname,'../prototype-v3/index.html'),'utf8');
   // D86/D93/D94/D97 permit navigation, capture wrappers, utility links and the two approved form questions.
   const v3=v4
+    // Restore the removed caption only for comparison with the historical page.
+    .replace('<button id="practice-toggle"', '<figcaption>Entrenamientos reales · EXOM</figcaption><button id="practice-toggle"')
+    // The progress-only decode hint has its own assertion; keep historical visual parity.
+    .replace(/<section class="section progress"[\s\S]*?<\/section>/, section => section.replace(/ decoding="async"/g, ''))
     .replace('id="testimonios" aria-labelledby="testimonials-title" hidden', 'id="testimonios" aria-labelledby="testimonials-title"')
     .replace('  <script defer src="gallery-shared.js"></script>\n', '')
     // Restore only retired fallback tags for historical parity; live MP4-only sources are checked separately.
