@@ -23,7 +23,7 @@ function replaceOnce(text, before, after) {
 }
 
 function publicCopy(html, name) {
-  html = replaceOnce(html, '<span>EXOM · Prototipo local, no publicado</span>', '<span>EXOM</span>');
+  html = replaceOnce(html, '<span>EXOM · Prototipo local, no publicado</span>', '');
   if (name === 'index.html') {
     html = replaceOnce(html, '  <div class="preview-notice">Prototipo V4 · Formulario local · Sin correos reales</div>\n', '');
     html = replaceOnce(html, 'Prueba local: utiliza solo datos ficticios. Los envíos de correo están desactivados.', 'Solicitud gratuita, sin compra ni cobro. No incluyas información médica.');

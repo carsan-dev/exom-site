@@ -91,6 +91,8 @@ async function check() {
   for (const [name, [route, title]] of Object.entries(pages)) {
     const html = output.get(targetFor(route)).toString();
     const source = fs.readFileSync(path.join(__dirname, name), 'utf8');
+    assert.match(html, /<div class="footer-bottom">\s*<nav class="footer-links"/, 'Every public footer omits the redundant small brand label');
+    assert.match(html, /<div class="footer-top"><a class="wordmark brand-lockup"/, 'Keep the main footer logo');
     assert.ok(html.includes(`<title>${title}</title>`));
     assert.ok(html.includes(`rel="canonical" href="${origin}${route}"`));
     assert.ok(html.includes('rel="icon" href="/favicon.svg?v=balance" type="image/svg+xml"'), 'Every public route uses the updated favicon');
