@@ -248,6 +248,8 @@ body[data-motion="off"] .hero-client{transform:none!important}
 /* V3: video changes the footage, not the ribbon geometry. */
 .sequence .gallery-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;max-width:none;pointer-events:none;opacity:0}
 .sequence .gallery-video.is-playing{opacity:1}
+.ribbon-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+[data-renderer="canvas-2d"] .sequence .gallery-video{opacity:0}
 
 /* D60: shared supporting copy links the two coaching statements. */
 .film-copy{position:absolute;inset:0;z-index:2;pointer-events:none;--copy-width:min(30%,420px);--copy-bottom:clamp(32px,6svh,64px);background:linear-gradient(0deg,#090a09e6,transparent 32%),linear-gradient(90deg,#090a0973,transparent 40%,transparent 60%,#090a0973)}

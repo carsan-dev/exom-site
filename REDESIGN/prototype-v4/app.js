@@ -276,6 +276,8 @@ function configureMotion() {
     });
     setupHeroMotion();
     const galleryTimeline = gsap.timeline({
+      // ScrollTrigger may update outside the ticker; paint after both tracks move.
+      onUpdate: () => window.ExomGallery.draw?.(),
       scrollTrigger: {
         trigger: '.x-gallery',
         start: 'top bottom', end: 'bottom top',
