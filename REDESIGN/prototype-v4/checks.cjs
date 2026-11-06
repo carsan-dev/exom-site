@@ -9,6 +9,7 @@ require('./navigation-checks.cjs');
 require('./coach-copy-checks.cjs');
 require('./story-checks.cjs');
 require('./strategy-checks.cjs');
+require('./home-viewport-checks.cjs');
 require('./history-checks.cjs');
 
 async function check() {
@@ -156,7 +157,7 @@ async function check() {
   }
   assert.equal(filmProgress(1).repetition,1);
   const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-  const css = fs.readFileSync(path.join(__dirname, 'styles.css'), 'utf8');
+  const css = fs.readFileSync(path.join(__dirname, 'styles.css'), 'utf8').replace(/calc\((\d+(?:\.\d+)?) \* var\(--home-(s?vh), 1\2\)\)/g, '$1$2');
   assert.ok(css.includes('@media(min-width:761px){\n  .hero-media{display:flex;justify-content:center;align-items:flex-end;gap:0}\n  .hero-portrait{width:min(42%,75cqh);flex:0 1 auto;margin-inline:clamp(12px,3cqh,24px)}\n  .hero-client{flex:0 1 auto;min-width:0}\n}'), 'Only desktop groups the clips around the height-scaled portrait; mobile keeps its grid');
   assert.ok(css.includes('.hero-portrait{position:absolute;top:auto;bottom:0;left:5%;width:90%;height:90%;z-index:3}'), 'Mobile portrait stays larger, bottom anchored and in front of the clips');
   assert.ok(css.includes('.hero-client{width:auto;height:45%;max-width:100%;margin-bottom:20px;z-index:2;grid-column:1;grid-row:1;justify-self:start}') && css.includes('.hero-client:last-child{grid-column:2;margin-bottom:0;justify-self:end}'), 'Mobile clips are 25% smaller, offset and aligned to the outside edges');

@@ -77,6 +77,13 @@ module.exports = async function checkGalleryVideos() {
   const previousV3 = fs.readFileSync(path.resolve(__dirname,'../prototype-v3/index.html'),'utf8');
   // D86/D93/D94/D97 permit navigation, capture wrappers, utility links and the two approved form questions.
   const v3=v4
+    .replace('<span class="strategy-word">estrategia.</span>', 'estrategia.')
+    .replace('  <script defer src="home-viewport.js"></script>\n', '')
+    // Restore only the approved strategy markup for historical comparison.
+    .replace('<p class="display strategy-objective strategy-line"><span>Cada</span> <span>objetivo</span></p>', '')
+    .replace('<div class="immersive-copy"><p class="display strategy-line"><span class="strategy-connect">necesita una</span><em class="strategy-key">estrategia.<span class="strategy-ink" aria-hidden="true">estrategia.</span></em></p>', '<div class="immersive-copy"><p class="display"><span class="strategy-line"><span>Cada objetivo</span></span><span class="strategy-line"><span class="strategy-connect">necesita una</span></span><span class="strategy-line"><em class="strategy-key">estrategia.<span class="strategy-ink" aria-hidden="true">estrategia.</span></em></span></p>')
+    .replace('<div class="exercise-scene" id="estrategia" role="region" aria-label="Cada objetivo necesita una estrategia">', '<div class="exercise-scene">')
+    .replace('<p class="strategy-note">Saber qué hacer.<br>Construir una rutina propia.</p>', '<p class="strategy-note"><span class="sr-only">Saber qué hacer. Construir una rutina propia.</span><span class="strategy-typed" aria-hidden="true" data-copy="Saber qué hacer.&#10;Construir una rutina propia.">Saber qué hacer.&#10;Construir una rutina propia.</span></p>')
     // Restore the removed caption only for comparison with the historical page.
     .replace('<button id="practice-toggle"', '<figcaption>Entrenamientos reales · EXOM</figcaption><button id="practice-toggle"')
     // The progress-only decode hint has its own assertion; keep historical visual parity.
@@ -135,8 +142,10 @@ module.exports = async function checkGalleryVideos() {
   assert.ok(normalized.includes(strategyCopy), 'Exercise headline uses the approved strategy copy');
   assert.ok(normalized.includes('alt="Moi realizando un peso muerto a una pierna"'));
   assert.equal(normalized.replace(coachingCopy, originalCopy).replace(strategyCopy, 'Tu esfuerzo.<br>Con <em>dirección.</em>').replace('alt="Moi realizando un peso muerto a una pierna"', 'alt="Persona del método realizando elevaciones con mancuernas"'),v2,'Only gallery playback, version label and approved coaching/exercise content differ');
-  const css=fs.readFileSync(path.join(__dirname,'styles.css'),'utf8');
-  const previousCss = css.replaceAll('.exercise-scene{height:310vh', '.exercise-scene{height:360vh').replaceAll('.film-stage{height:370vh', '.film-stage{height:360vh')
+  const css=fs.readFileSync(path.join(__dirname,'styles.css'),'utf8').replace(/calc\((\d+(?:\.\d+)?) \* var\(--home-(s?vh), 1\2\)\)/g, '$1$2');
+  const previousCss = css.replace('.exercise-scene{height:auto;background', '.exercise-scene{height:360vh;background')
+    .replace('  .exercise-scene{height:auto}', '  .exercise-scene{height:360vh}')
+    .replaceAll('.film-stage{height:370vh', '.film-stage{height:360vh')
     .replace('.testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}', '.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}')
     .replace('padding:clamp(20px,2.5vw,28px)', 'padding:28px')
     .replace('font:800 clamp(28px,4vw,44px)/1 Barlow', 'font:800 44px/1 Barlow')

@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const app = fs.readFileSync(__dirname + '/app.js', 'utf8');
-const factory = app.slice(app.indexOf('function createCoachCopyTimeline('), app.indexOf('function createStrategyTyping('));
+const factory = app.slice(app.indexOf('function createCoachCopyTimeline('), app.indexOf('function configureMotion('));
 const start = { offsetLeft: 64 }, end = { offsetLeft: 820 }, bridge = {};
 const calls = [];
 const timeline = { fromTo(...args) { calls.push(args); return this; } };

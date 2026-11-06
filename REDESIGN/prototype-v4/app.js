@@ -12,6 +12,8 @@ const revealedHeadings = new WeakSet();
 const revealedQualifications = new WeakSet();
 let headingSplits = [];
 let heroIntroduced = false;
+let strategyTimeline;
+let strategySplits = [];
 const sceneCanvases = canvases;
 const nearbyScenes = new Set();
 function loadSheet(src) {
@@ -33,7 +35,7 @@ canvases.forEach(canvas => canvasVisibility.observe(canvas));
 const strategyVideo = document.querySelector('.strategy-video');
 strategyVideo.defaultPlaybackRate = strategyVideo.playbackRate = 1.15;
 const coachVideo = document.querySelector('.coach-video');
-window.ExomGallery.register(strategyVideo, { ready: false, preserveFrame: true });
+window.ExomGallery.register(strategyVideo, { ready: true, preserveFrame: true });
 window.ExomGallery.register(coachVideo, { ready: false, preserveFrame: true });
 
 function fitGallery() {
@@ -183,31 +185,36 @@ function setupHeroMotion() {
     .to('.hero-brand', { y: () => innerWidth <= 760 ? 24 : 90, ease: 'none' }, 0);
 }
 
-function strategyPlaybackReady(progress, width, height) {
-  if (!width || !height) return false;
-  // The 9:16 video can be uncovered before the mask finishes crossing its empty margins.
-  const mediaWidth = Math.min(width, height * 9 / 16);
-  const insetX = (width - mediaWidth) * 50 / width;
-  const insetY = (height - mediaWidth * 16 / 9) / (2 * height);
-  const reveal = gsap.parseEase('power2.inOut')(clamp(progress / .6));
-  // Match the actual four-decimal polygon coordinates produced by GSAP.
-  const edge = Math.round(42 * (1 - reveal) * 1e4) / 1e4;
-  return edge - 30 * insetY <= insetX;
+function setupStrategyLetters() {
+  if (!revealFontsReady || !window.SplitText || !strategyTimeline || strategySplits.length) return;
+  gsap.registerPlugin(SplitText);
+  const progress = strategyTimeline.progress();
+  strategyTimeline.progress(0);
+  document.querySelectorAll('.strategy-objective > span, .strategy-connect, .strategy-word, .strategy-ink').forEach(target => {
+    const line = target.closest('.strategy-line');
+    const objective = line.classList.contains('strategy-objective');
+    const split = SplitText.create(target, {
+      type: 'words,chars', tag: 'span', charsClass: 'strategy-char',
+      aria: target.classList.contains('strategy-ink') ? 'none' : 'auto'
+    });
+    strategySplits.push(split);
+    // The edge reveals successive letters; equal travel preserves their spacing.
+    strategyTimeline.fromTo(split.chars, {
+      x: () => (objective ? 1 : -1) * (target.getBoundingClientRect().width + 4)
+    }, {
+      x: 0, duration: 1, ease: 'power2.inOut'
+    }, 0);
+  });
+  strategyTimeline.progress(1).progress(progress);
 }
 
-function createStrategyTimeline(frame, key, ink, rule) {
-  // Prepare the complete composition before the first ScrollTrigger update.
-  gsap.set(frame, { clipPath: 'polygon(42% 0%,88% 0%,58% 100%,12% 100%)' });
-  gsap.set(key, { clipPath: 'polygon(-30% 0%,0% 0%,-30% 100%,-60% 100%)' });
-  gsap.set(ink, { clipPath: 'polygon(-30% 0%,0% 0%,-30% 100%,-60% 100%)' });
-  gsap.set(rule, { scaleX: 0 });
+function createStrategyTimeline(frame, rule) {
+  // Four explicit corners keep the curtain symmetric after CSS serialization.
+  gsap.set(frame, { clipPath: 'polygon(46% 0%,54% 0%,54% 100%,46% 100%)' });
+  gsap.set(rule, { scaleX: .35 });
   return gsap.timeline({ paused: true })
-    .to(frame, { clipPath: 'polygon(0% 0%,130% 0%,100% 100%,-30% 100%)', duration: .6, ease: 'power2.inOut' }, 0)
-    .to(key, { clipPath: 'polygon(-30% 0%,130% 0%,100% 100%,-60% 100%)', duration: .35, ease: 'none' }, .2)
-    .to(ink, { clipPath: 'polygon(-30% 0%,130% 0%,100% 100%,-60% 100%)', duration: .35, ease: 'none' }, .25)
-    .to(rule, { scaleX: 1, duration: .25, ease: 'power2.inOut' }, .35)
-    // The final 40% drives the reversible writing, not an empty hold.
-    .to({}, { duration: .4 }, .6);
+    .fromTo(frame, { clipPath: 'polygon(46% 0%,54% 0%,54% 100%,46% 100%)' }, { clipPath: 'polygon(0% 0%,100% 0%,100% 100%,0% 100%)', duration: 1, ease: 'power2.inOut' }, 0)
+    .fromTo(rule, { scaleX: .35 }, { scaleX: 1, duration: .65, ease: 'power3.out' }, .15);
 }
 
 function createCoachCopyTimeline(start, end, bridge) {
@@ -218,41 +225,19 @@ function createCoachCopyTimeline(start, end, bridge) {
     .fromTo(end, { opacity: 0, x: () => innerWidth <= 760 ? 0 : 24 }, { opacity: 1, x: 0, duration: 0.32, ease: 'power2.out' }, 0.68);
 }
 
-function createStrategyTyping(video, note) {
-  const copy = note.dataset.copy;
-  let started = false, progress = 0, failed = false;
-  const render = () => {
-    const written = Math.floor(clamp((progress - .6) / .4) * copy.length);
-    note.textContent = failed || document.body.dataset.motion !== 'on' ? copy : started ? copy.slice(0, written) : '';
-  };
-  const finish = () => {
-    failed = true;
-    render();
-  };
-  video.addEventListener('playing', () => {
-    if (video.paused || document.body.dataset.motion !== 'on' || !video.classList.contains('is-playing')) return;
-    started = true;
-    render();
-  });
-  video.addEventListener('error', finish);
-  video.addEventListener('exom:playback-failed', finish);
-  return { progress(value) { progress = value; render(); }, sync() {
-    if (video.error) failed = true;
-    render();
-  } };
-}
 function configureMotion() {
   headingSplits.forEach(split => split.revert());
   headingSplits = [];
+  strategySplits.forEach(split => split.revert());
+  strategySplits = [];
+  strategyTimeline = null;
   motionFrames.clear();
   sceneCanvases.forEach(canvas => motionFrames.set(canvas, { current: 0, target: 0, direction: 1 }));
   sceneCanvases.forEach(canvas => paintSequence(canvas, 0));
   motionContext?.revert();
-  window.ExomGallery.setReady(strategyVideo, false);
   window.ExomGallery.setReady(coachVideo, false);
   const paused = effectsPaused || motionPreference.matches || !window.gsap || !window.ScrollTrigger;
   document.body.dataset.motion = paused ? 'off' : 'on';
-  strategyTyping.sync();
   motionButton.textContent = motionPreference.matches ? 'Movimiento reducido' : paused ? 'Activar efectos' : 'Pausar efectos';
   motionButton.setAttribute('aria-pressed', String(paused));
   motionButton.disabled = motionPreference.matches || !window.gsap || !window.ScrollTrigger;
@@ -290,25 +275,25 @@ function configureMotion() {
         x: galleryTravel * direction, duration: 1, ease: 'none'
       }, 0);
     });
-    const exerciseState = { progress: 0 };
     const strategyFrame = document.querySelector('.exercise-sequence');
-    const strategyTimeline = createStrategyTimeline(
-      strategyFrame, document.querySelector('.strategy-key'), document.querySelector('.strategy-ink'),
+    strategyTimeline = createStrategyTimeline(
+      strategyFrame,
       document.querySelector('.strategy-rule')
     );
-    gsap.to(exerciseState, {
-      progress: 1, ease: 'none', onUpdate: () => {
-        strategyTimeline.progress(exerciseState.progress);
-        window.ExomGallery.setReady(strategyVideo, strategyPlaybackReady(exerciseState.progress, strategyFrame.clientWidth, strategyFrame.clientHeight));
-        strategyTyping.progress(exerciseState.progress);
-      },
+    setupStrategyLetters();
+    const strategyReveal = ScrollTrigger.create({
+      trigger: '.exercise-scene', start: 'top 75%', end: 'center center',
+      animation: strategyTimeline, scrub: .25,
+      // Render both ends so characters reset when the layout changes.
+      onRefresh: self => strategyTimeline.progress(0).invalidate().progress(1).progress(self.progress)
+    });
+    // Start painting during the second half of the opening, once the word is visible.
+    gsap.fromTo('.strategy-ink', { clipPath: 'inset(0 100% 0 0)' }, {
+      clipPath: 'inset(0 0% 0 0)', ease: 'none',
       scrollTrigger: {
-        trigger: '.exercise-scene', start: () => innerWidth <= 760 ? 'top top+=70' : 'top top+=86', end: 'bottom bottom', scrub: true,
-        onRefresh: () => {
-          strategyTimeline.progress(0).invalidate().progress(exerciseState.progress);
-          window.ExomGallery.setReady(strategyVideo, strategyPlaybackReady(exerciseState.progress, strategyFrame.clientWidth, strategyFrame.clientHeight));
-          strategyTyping.progress(exerciseState.progress);
-        }
+        trigger: '.strategy-key',
+        start: () => Math.max(strategyReveal.start + (strategyReveal.end - strategyReveal.start) * .55, document.querySelector('.strategy-key').getBoundingClientRect().top + window.scrollY - innerHeight * .88),
+        end: () => `+=${innerHeight * .16}`, scrub: .25
       }
     });
     const filmStateValue = { progress: 0 };
@@ -343,7 +328,6 @@ function configureMotion() {
   syncPractice();
   window.ExomGallery.sync();
 }
-const strategyTyping = createStrategyTyping(strategyVideo, document.querySelector('.strategy-typed'));
 motionButton.addEventListener('click', () => { effectsPaused = !effectsPaused; configureMotion(); });
 motionPreference.addEventListener('change', configureMotion);
 const practiceStates = new Map([...document.querySelectorAll('.practice-video')].map(video => [video, { visible: false, pending: false, failed: false, generation: 0 }]));
@@ -408,7 +392,10 @@ document.addEventListener('visibilitychange', () => {
 });
 document.fonts.ready.then(() => {
   revealFontsReady = true;
-  if (document.body.dataset.motion === 'on') motionContext?.add(setupHeadingReveals);
+  if (document.body.dataset.motion === 'on') motionContext?.add(() => {
+    setupHeadingReveals();
+    setupStrategyLetters();
+  });
   window.ScrollTrigger?.refresh();
 });
 
