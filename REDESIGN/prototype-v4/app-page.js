@@ -23,6 +23,30 @@
   const { document, gsap, ScrollTrigger } = root;
   const films = [...document.querySelectorAll('.app-film-video')];
   const portraitFilm = root.matchMedia('(max-width: 600px)');
+  const filmPlay = document.querySelector('.app-film-play');
+  let pendingFilm = null, failedFilm = null;
+  const currentFilm = () => films.find(video => video.classList.contains('app-film-portrait') === portraitFilm.matches);
+  function syncFilmButton() {
+    const video = currentFilm();
+    filmPlay.hidden = !video || (!video.paused && !video.ended);
+    filmPlay.disabled = pendingFilm === video;
+    filmPlay.setAttribute('aria-label', pendingFilm === video ? 'Cargando vídeo de EXOM' : failedFilm === video ? 'Reintentar reproducción de EXOM' : 'Reproducir presentación de EXOM');
+  }
+  filmPlay.addEventListener('click', async () => {
+    const video = currentFilm();
+    if (!video || pendingFilm === video) return;
+    if (document.activeElement === filmPlay) video.focus({ preventScroll: true });
+    pendingFilm = video; failedFilm = null; syncFilmButton();
+    try {
+      await video.play();
+      if (currentFilm() !== video || document.hidden) video.pause();
+    }
+    catch { failedFilm = video; }
+    finally { if (pendingFilm === video) pendingFilm = null; syncFilmButton(); }
+  });
+  films.forEach(video => ['playing', 'pause', 'ended', 'error'].forEach(event => video.addEventListener(event, syncFilmButton)));
+  portraitFilm.addEventListener('change', syncFilmButton);
+  syncFilmButton();
   // A manually started video must not keep playing when its layout or tab is hidden.
   portraitFilm.addEventListener('change', () => films.forEach(video => {
     if (video.classList.contains('app-film-portrait') !== portraitFilm.matches) video.pause();

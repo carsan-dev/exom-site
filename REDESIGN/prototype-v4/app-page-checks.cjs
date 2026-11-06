@@ -19,6 +19,14 @@ async function check() {
   assert.ok(!/autoplay|<form|<input|\.webm/.test(html), 'Manual MP4 playback only, without data collection');
   const films = [...html.matchAll(/<video\b[^>]+>/g)];
   assert.equal(films.length, 2);
+  assert.ok(!html.includes('<span>Ver vídeo</span>'));
+  assert.match(css, /background:var\(--lime\); color:var\(--ink\); display:grid; place-items:center/);
+  assert.ok(css.includes('.app-film-play:hover:not(:disabled) { background:#a8da34; border-color:#a8da34; }') && !css.includes('scale(1.06)') && !css.includes('scale(.94)'), 'Hover stays slightly darker lime without scaling');
+  assert.ok(css.includes('@keyframes app-play-ring') && css.includes('animation:app-play-ring 400ms ease-out 1;'), 'The outer ring runs once, not as an idle loop');
+  assert.ok(css.includes('@media(prefers-reduced-motion:no-preference)') && css.includes('body[data-app-motion="on"] .app-film-play:hover:not(:disabled)::after') && css.includes('@media(hover:hover) and (pointer:fine)'), 'The ring respects paused effects, reduced motion and touch input');
+  assert.match(css, /\.app-film-play::after \{[^}]*opacity:0; pointer-events:none;/, 'The decorative ring cannot intercept video input and is hidden at rest');
+  assert.match(html, /<button class="app-film-play" type="button" aria-label="Reproducir presentación de EXOM" hidden>/);
+  assert.ok(css.includes('.app-film-play[hidden] { display:none; }'), 'Native controls remain the no-JavaScript fallback');
   for (const [tag] of films) for (const attribute of ['controls', 'playsinline', 'muted', 'preload="none"', 'poster=', 'aria-label=', 'aria-describedby="film-description"']) assert.ok(tag.includes(attribute), attribute);
   assert.ok(html.includes('width="1920" height="1080"') && html.includes('width="1080" height="1920"'));
   assert.ok(css.includes('object-fit:contain') && css.includes('aspect-ratio:9/16'));
@@ -98,11 +106,12 @@ async function check() {
     const counter = {}, triggers = [], state = { builds: 0, reverted: 0, intros: 0 };
     const chain = { labels: {}, addLabel(name, time) { this.labels[name] = time; return this; }, duration() { return 4; }, set() { return this; }, to() { return this; }, from() { return this; }, fromTo() { return this; } };
     const fakeGsap = { registerPlugin() {}, set() {}, from() {}, to() {}, timeline(config) { if (config?.defaults) state.intros++; return chain; }, context(fn) { state.builds++; fn(); return { revert() { state.reverted++; } }; } };
-    const films = [false, true].map(portrait => ({ paused: false, pauses: 0, classList: { contains: () => portrait }, pause() { this.paused = true; this.pauses++; } }));
-    const document = { body, hidden: false, addEventListener: (event, callback) => { events[event] = callback; }, getElementById: () => button, querySelector: s => s === '.app-screen-count' ? counter : element, querySelectorAll: s => s === '.app-feature' ? [element, element, element] : s === '[data-reading]' ? [element] : s === '.app-film-video' ? films : [], fonts: { ready: Promise.resolve() } };
-    const window = { document, gsap: missing ? undefined : fakeGsap, ScrollTrigger: { create(v) { triggers.push(v); }, refresh() {} }, matchMedia(q) { const key = q.includes('reduced') ? 'reduced' : q === '(max-width: 600px)' ? 'film' : 'desktop'; return prefs[key] = { matches: key === 'reduced' ? reduced : key === 'film' ? !desktop : desktop, addEventListener(k,v) { this.change = v; } }; }, scrollY: 0, location: { hash }, scrollBy() {}, addEventListener() {} };
+    const filmPlay = { hidden: true, disabled: false, attrs: {}, setAttribute(k,v) { this.attrs[k] = v; }, addEventListener(k,v) { this[k] = v; } };
+    const films = [false, true].map(portrait => ({ paused: true, pauses: 0, plays: 0, events: {}, classList: { contains: () => portrait }, addEventListener(k,v) { this.events[k] = v; }, pause() { this.paused = true; this.pauses++; this.events.pause?.(); }, play() { this.plays++; return new Promise((resolve,reject) => { this.resolve = () => { this.paused = false; this.events.playing?.(); resolve(); }; this.reject = reject; }); } }));
+    const document = { body, hidden: false, addEventListener: (event, callback) => { events[event] = callback; }, getElementById: () => button, querySelector: s => s === '.app-film-play' ? filmPlay : s === '.app-screen-count' ? counter : element, querySelectorAll: s => s === '.app-feature' ? [element, element, element] : s === '[data-reading]' ? [element] : s === '.app-film-video' ? films : [], fonts: { ready: Promise.resolve() } };
+    const window = { document, gsap: missing ? undefined : fakeGsap, ScrollTrigger: { create(v) { triggers.push(v); }, refresh() {} }, matchMedia(q) { const key = q.includes('reduced') ? 'reduced' : q === '(max-width: 600px)' ? 'film' : 'desktop'; const listeners = []; return prefs[key] = { matches: key === 'reduced' ? reduced : key === 'film' ? !desktop : desktop, addEventListener(k,v) { listeners.push(v); }, change() { listeners.forEach(fn => fn()); } }; }, scrollY: 0, location: { hash }, scrollBy() {}, addEventListener() {} };
     vm.runInNewContext(source, { window, globalThis: window });
-    return { events, prefs, body, button, state, triggers, counter, document, films };
+    return { events, prefs, body, button, filmPlay, state, triggers, counter, document, films };
   }
   const h = harness();
   assert.equal(h.triggers.length, 1, 'Only one ScrollTrigger owns both screens and bar');
@@ -144,6 +153,31 @@ async function check() {
     video.document.hidden = false; video.events.visibilitychange();
     assert.ok(video.films.every(film => film.pauses === 2), 'Returning to the tab never autoplays');
   }
+
+  for (const options of [{}, { desktop: false }, { missing: true }, { reduced: true }]) {
+    const h = harness(options), film = h.films[options.desktop === false ? 1 : 0];
+    assert.equal(h.filmPlay.hidden, false); assert.ok(h.films.every(v => v.plays === 0));
+    h.document.activeElement = h.filmPlay;
+    film.focus = () => { h.document.activeElement = film; };
+    const playing = h.filmPlay.click(); h.filmPlay.click();
+    assert.equal(h.document.activeElement, film, 'Transfer keyboard focus before disabling or hiding the play button');
+    assert.equal(film.plays, 1); assert.equal(h.filmPlay.disabled, true);
+    film.resolve(); await playing; assert.equal(h.filmPlay.hidden, true);
+    film.pause(); assert.equal(h.filmPlay.hidden, false);
+    const failed = h.filmPlay.click(); film.reject(Error('Playback unavailable')); await failed;
+    assert.equal(h.filmPlay.hidden, false); assert.equal(h.filmPlay.attrs['aria-label'], 'Reintentar reproducción de EXOM');
+    const retry = h.filmPlay.click(); film.resolve(); await retry;
+    film.ended = true; film.events.ended(); assert.equal(h.filmPlay.hidden, false);
+  }
+  const switched = harness(), oldPlay = switched.filmPlay.click();
+  switched.prefs.film.matches = true; switched.prefs.film.change();
+  assert.equal(switched.filmPlay.disabled, false, 'The new layout is not blocked by the old pending play');
+  switched.films[0].resolve(); await oldPlay;
+  assert.equal(switched.films[0].paused, true, 'A late play cannot restart the hidden layout');
+  const hidden = harness(), hiddenPlay = hidden.filmPlay.click();
+  hidden.document.hidden = true; hidden.events.visibilitychange();
+  hidden.films[0].resolve(); await hiddenPlay;
+  assert.equal(hidden.films[0].paused, true, 'A late play cannot restart a hidden tab');
 
   const server = createServer();
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

@@ -28,6 +28,23 @@
 .app-film-window { position:relative; overflow:clip; background:#191d17; aspect-ratio:16/9; transform-origin:center; }
 .app-film-video { width:100%; height:100%; object-fit:contain; background:var(--bg); }
 .app-film-portrait { display:none; }
+.app-film-play { position:absolute; z-index:2; left:50%; top:50%; transform:translate(-50%,-50%); width:clamp(96px,9vw,128px); aspect-ratio:1; border:1px solid var(--lime); border-radius:50%; background:var(--lime); color:var(--ink); display:grid; place-items:center; cursor:pointer; }
+.app-film-play[hidden] { display:none; }
+.app-film-play svg { width:38px; height:38px; }
+.app-film-play:hover:not(:disabled) { background:#a8da34; border-color:#a8da34; }
+.app-film-play:focus-visible { outline:3px solid var(--ink); outline-offset:5px; }
+.app-film-play:disabled { cursor:wait; }
+.app-film-play::after { content:""; position:absolute; inset:-7px; border:1px solid var(--lime); border-radius:50%; opacity:0; pointer-events:none; }
+@keyframes app-play-ring {
+  from { transform:scale(1); opacity:.65; }
+  to { transform:scale(1.18); opacity:0; }
+}
+@media(prefers-reduced-motion:no-preference) {
+  body[data-app-motion="on"] .app-film-play:focus-visible:not(:disabled)::after { animation:app-play-ring 400ms ease-out 1; }
+  @media(hover:hover) and (pointer:fine) {
+    body[data-app-motion="on"] .app-film-play:hover:not(:disabled)::after { animation:app-play-ring 400ms ease-out 1; }
+  }
+}
 .app-film-caption { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-top:18px; color:var(--muted); font-size:13px; }
 .app-film-caption a { display:grid; place-items:center; min-width:44px; min-height:44px; color:var(--lime); }
 .app-daily { padding:100px var(--space) 120px; }
