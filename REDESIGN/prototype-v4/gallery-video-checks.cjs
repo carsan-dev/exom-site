@@ -77,6 +77,10 @@ module.exports = async function checkGalleryVideos() {
   const previousV3 = fs.readFileSync(path.resolve(__dirname,'../prototype-v3/index.html'),'utf8');
   // D86/D93/D94/D97 permit navigation, capture wrappers, utility links and the two approved form questions.
   const v3=v4
+    .replaceAll(' sizes="(max-width: 760px) calc((100vw - 64px) / 3), 165px"', '')
+    .replace('<p class="sr-only">Cada objetivo necesita una estrategia.</p>', '')
+    .replace('class="display strategy-objective strategy-line" aria-hidden="true"', 'class="display strategy-objective strategy-line"')
+    .replace('class="display strategy-line" aria-hidden="true"', 'class="display strategy-line"')
     .replace('<span class="strategy-word">estrategia.</span>', 'estrategia.')
     .replace('  <script defer src="home-viewport.js"></script>\n', '')
     // Restore only the approved strategy markup for historical comparison.

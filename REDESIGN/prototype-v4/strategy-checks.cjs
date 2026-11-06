@@ -60,7 +60,10 @@ try {
   assert.equal(linkedTimeline.progress(), .5, 'Late font readiness preserves curtain progress');
   assert.equal(linkedTimeline.duration(), 1, 'Letters never lengthen the curtain');
   assert.equal(splits.length, 5);
-  assert.equal(splits[0].options.aria, 'auto');
+  assert.equal(splits[0].options.aria, 'none', 'Generic spans must not receive prohibited aria-label attributes');
+  assert.ok(html.includes('<p class="sr-only">Cada objetivo necesita una estrategia.</p>'), 'Screen readers receive one complete unsplit sentence');
+  assert.ok(html.includes('class="display strategy-objective strategy-line" aria-hidden="true"'));
+  assert.ok(html.includes('class="display strategy-line" aria-hidden="true"'), 'Animated glyphs and color overlay are visual-only');
   assert.equal(splits[4].options.aria, 'none', 'Ink overlay is not read twice');
   const left = splits[0].chars[0], right = splits[2].chars[0];
   for (let pass = 0; pass < 3; pass++) {

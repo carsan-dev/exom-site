@@ -110,6 +110,37 @@ async function check() {
     for (const match of bytes.toString().matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g)) checkRef(match[1], '/' + name);
   }
   const landing = output.get('index.html').toString();
+  const responsiveEntries = Object.values(optimized).filter(entry => entry.responsive);
+  assert.equal(responsiveEntries.length, 5, 'Only the five oversized landing images get variants');
+  for (const entry of responsiveEntries) {
+    for (const variant of entry.responsive.variants) {
+      const bytes = output.get(variant.file);
+      assert.equal(digest(bytes), variant.sha256);
+      assert.ok(bytes.length < output.get(entry.file).length);
+      let width;
+      for (let offset = 12; offset + 8 <= bytes.length;) {
+        const kind = bytes.toString('ascii', offset, offset + 4);
+        const size = bytes.readUInt32LE(offset + 4), data = offset + 8;
+        if (kind === 'VP8X') width = bytes.readUIntLE(data + 4, 3) + 1;
+        if (kind === 'VP8 ') width = bytes.readUInt16LE(data + 6) & 0x3fff;
+        if (kind === 'VP8L') width = (bytes.readUInt32LE(data + 1) & 0x3fff) + 1;
+        offset = data + size + (size % 2);
+      }
+      assert.equal(width, variant.width, 'srcset width matches the encoded pixels');
+      assert.ok(landing.includes(`/${variant.file} ${variant.width}w`));
+    }
+    assert.ok(landing.includes(`/${entry.file} ${entry.responsive.originalWidth}w`), 'Full-size fallback remains available for high-density screens');
+  }
+  assert.equal((landing.match(/ sizes="\(max-width: 760px\) calc\(\(100vw - 64px\) \/ 3\), 165px"/g) || []).length, 3);
+  const responsiveSource = Object.keys(optimized).find(name => optimized[name].responsive);
+  const invalidVariant = (field, value) => {
+    const changed = structuredClone(optimized);
+    changed[responsiveSource].responsive.variants[0][field] = value;
+    return changed;
+  };
+  assert.throws(() => collectRelease(invalidVariant('sha256', 'changed')), /Responsive bytes changed/);
+  assert.throws(() => collectRelease(invalidVariant('file', '../outside.webp')), /Invalid responsive path/);
+  assert.throws(() => collectRelease(invalidVariant('width', 0)), /Invalid responsive width/);
   assert.ok(landing.indexOf('src="/gallery-shared.js"') > landing.indexOf('src="/app.js"'));
   assert.ok(output.get('gallery-shared.js').equals(fs.readFileSync(path.join(__dirname, 'gallery-shared.js'))));
   assert.ok(!/gpu-mode-|diagnostic-result|manualGalleryMode/.test(landing + output.get('gallery-shared.js').toString()), 'No comparison panel in the release');

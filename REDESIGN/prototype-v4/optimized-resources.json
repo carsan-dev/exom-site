@@ -27,7 +27,23 @@
   "assets/media/images/foto-portada-moi-transparent.png": {
     "file": "assets/optimized/1f6d31e9c5f34533.webp",
     "sourceSha256": "b6b992f6a1f0b5749c62c7e04d3d78c39d75a6a5c22a428622bf78cad9c294b4",
-    "sha256": "66769a7c7230cf8b1b77115f7a50dd900416470ad42f19ddcc66c2f2b1fa147d"
+    "sha256": "66769a7c7230cf8b1b77115f7a50dd900416470ad42f19ddcc66c2f2b1fa147d",
+    "responsive": {
+      "originalWidth": 1086,
+      "sizes": "(max-width: 760px) 65vw, 42vw",
+      "variants": [
+        {
+          "file": "assets/optimized/43c4b2440ea5a55f.webp",
+          "width": 360,
+          "sha256": "43c4b2440ea5a55f89e306cf51ccd454b16394fc9c729bd2d3873a12aebabc9b"
+        },
+        {
+          "file": "assets/optimized/bb798383a8bdfd5e.webp",
+          "width": 720,
+          "sha256": "bb798383a8bdfd5e6284d69305bb10575289484b9d7f6336535f7c46802c095a"
+        }
+      ]
+    }
   },
   "assets/clients-v1/carlos.webp": {
     "file": "assets/optimized/75a7adf4eabd3341.webp",
@@ -37,22 +53,91 @@
   "assets/media/images/Moi trabajando escuela.jpg": {
     "file": "assets/optimized/1a558c984a5f667a.webp",
     "sourceSha256": "57d3cea30e4c57435abf15438aa6b1b58543ac85901027f51c6627b1a62dde34",
-    "sha256": "79b001118026f33cd120a754a8dd74be8878ec656de7255542f1ad01f6e73631"
+    "sha256": "79b001118026f33cd120a754a8dd74be8878ec656de7255542f1ad01f6e73631",
+    "responsive": {
+      "originalWidth": 4536,
+      "sizes": "(max-width: 760px) calc(100vw - 48px), 38vw",
+      "variants": [
+        {
+          "file": "assets/optimized/1467914e51d13346.webp",
+          "width": 480,
+          "sha256": "1467914e51d13346f3f2c5c76922280938e356d75a324a8a9649d291ed0545de"
+        },
+        {
+          "file": "assets/optimized/e57c9bc9b1f5bc49.webp",
+          "width": 960,
+          "sha256": "e57c9bc9b1f5bc49f719ec83b5783ebdb75e59679631d54a0f3bd206c5797695"
+        },
+        {
+          "file": "assets/optimized/97ad3da84667b268.webp",
+          "width": 1440,
+          "sha256": "97ad3da84667b268fc7e6e689f33f3eb3f5cdc0bfd26ee12cf61ac2bde7eccd0"
+        }
+      ]
+    }
   },
   "assets/media/images/Captura App Entreno.jpeg": {
     "file": "assets/optimized/e216897573ef3c01.webp",
     "sourceSha256": "8ebcadddbe61734635a0185ec6d744dc5c3f6a0c093d04cb09d6a2abde7d0fa7",
-    "sha256": "2202d8966eda2e47decd3cb2a3eb812fe9e78f15c7957af7de504e8cd2193a5e"
+    "sha256": "2202d8966eda2e47decd3cb2a3eb812fe9e78f15c7957af7de504e8cd2193a5e",
+    "responsive": {
+      "originalWidth": 945,
+      "sizes": "280px",
+      "variants": [
+        {
+          "file": "assets/optimized/f41031187bfd313b.webp",
+          "width": 240,
+          "sha256": "f41031187bfd313b9393931695853415ccc2e86dd2eb61713473235c5c129ca9"
+        },
+        {
+          "file": "assets/optimized/1d2e3223e3f03291.webp",
+          "width": 480,
+          "sha256": "1d2e3223e3f0329184f9d15478efb8613a09bf6ba388f484d3fb306d72988199"
+        }
+      ]
+    }
   },
   "assets/media/images/Captura App Comida.jpeg": {
     "file": "assets/optimized/a436ca02af400608.webp",
     "sourceSha256": "f4b2095132237632040302174ee13a09df6ab04af9d0fc96468ea118a0687e11",
-    "sha256": "9492a0affde7ee9defdc19523209d52cb5e9ad8b0fa254e35860c51c2476e0ee"
+    "sha256": "9492a0affde7ee9defdc19523209d52cb5e9ad8b0fa254e35860c51c2476e0ee",
+    "responsive": {
+      "originalWidth": 945,
+      "sizes": "280px",
+      "variants": [
+        {
+          "file": "assets/optimized/31b20db7ea6203bd.webp",
+          "width": 240,
+          "sha256": "31b20db7ea6203bd44addb290b6adbcd56ae0e417c16b580783889bb7e64a4f2"
+        },
+        {
+          "file": "assets/optimized/28cfa67a603193d0.webp",
+          "width": 480,
+          "sha256": "28cfa67a603193d07cd04582dedb661eb4908057ee3037ae735c384d10b0ae1b"
+        }
+      ]
+    }
   },
   "assets/media/images/Captura App Progreso.jpeg": {
     "file": "assets/optimized/b96a6906bbcb693c.webp",
     "sourceSha256": "f575c2e73ab986c35f3426f2751f95922ec26c6af1a52b7a85a8b161058f802a",
-    "sha256": "22f83bb9af0553cc8782d7abb86a4e509167a98248b5ba991b09eb11570e1d6f"
+    "sha256": "22f83bb9af0553cc8782d7abb86a4e509167a98248b5ba991b09eb11570e1d6f",
+    "responsive": {
+      "originalWidth": 945,
+      "sizes": "280px",
+      "variants": [
+        {
+          "file": "assets/optimized/88973ed23e9a229b.webp",
+          "width": 240,
+          "sha256": "88973ed23e9a229b8925f42629fdfd7ac6557e9d1fdc3225c27646af51c410da"
+        },
+        {
+          "file": "assets/optimized/8b897d44b9b9bc6d.webp",
+          "width": 480,
+          "sha256": "8b897d44b9b9bc6dd9b0baf026a264c2b13c3b6b9a0da58a48ca6ba2836cc552"
+        }
+      ]
+    }
   },
   "assets/gallery-client-v1/carlos-poster.webp": {
     "file": "assets/optimized/0a0734fbcd7c48f4.webp",

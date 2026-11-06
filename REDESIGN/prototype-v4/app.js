@@ -195,7 +195,7 @@ function setupStrategyLetters() {
     const objective = line.classList.contains('strategy-objective');
     const split = SplitText.create(target, {
       type: 'words,chars', tag: 'span', charsClass: 'strategy-char',
-      aria: target.classList.contains('strategy-ink') ? 'none' : 'auto'
+      aria: 'none'
     });
     strategySplits.push(split);
     // The edge reveals successive letters; equal travel preserves their spacing.

@@ -50,6 +50,7 @@ function publicCopy(html, name) {
 function collectRelease(optimized = require('./optimized-resources.json')) {
   const output = new Map();
   const seen = new Map();
+  const responsive = new Map();
   const add = (name, bytes) => {
     assert.ok(!name.startsWith('/') && !name.split('/').includes('..'));
     const value = Buffer.isBuffer(bytes) ? bytes : Buffer.from(bytes);
@@ -82,6 +83,7 @@ function collectRelease(optimized = require('./optimized-resources.json')) {
       if (replacement.file.endsWith('.webp')) assert.ok(smaller.length <= 500000, 'Photo exceeds 500 KB');
       name = replacement.file;
       bytes = smaller;
+      if (replacement.responsive) responsive.set('/' + name, replacement.responsive);
     }
     const url = '/' + name.split('/').map(encodeURIComponent).join('/');
     seen.set(file, url);
@@ -114,6 +116,28 @@ function collectRelease(optimized = require('./optimized-resources.json')) {
       const [ref, ...descriptor] = item.trim().split(/\s+/);
       return [reference(ref, source), ...descriptor].join(' ');
     }).join(', ') + '"');
+    html = html.replace(/<img\b[^>]*>/g, tag => {
+      const src = /\bsrc="([^"]+)"/.exec(tag)?.[1];
+      const variants = responsive.get(src);
+      if (!variants) return tag;
+      assert.ok(!tag.includes('srcset='), 'Responsive source already defined');
+      let previousWidth = 0;
+      const candidates = variants.variants.map(variant => {
+        assert.ok(Number.isInteger(variant.width) && variant.width > previousWidth && variant.width < variants.originalWidth, 'Invalid responsive width');
+        previousWidth = variant.width;
+        assert.ok(/^assets\/optimized\/[a-f0-9]{16}\.webp$/.test(variant.file), 'Invalid responsive path');
+        const file = path.join(__dirname, variant.file);
+        assert.equal(fs.realpathSync(file).toLowerCase(), file.toLowerCase(), 'No linked responsive sources');
+        const bytes = fs.readFileSync(file);
+        assert.equal(digest(bytes), variant.sha256, 'Responsive bytes changed');
+        assert.ok(bytes.length < output.get(src.slice(1)).length, 'Responsive image must be smaller');
+        add(variant.file, bytes);
+        return `/${variant.file} ${variant.width}w`;
+      });
+      candidates.push(`${src} ${variants.originalWidth}w`);
+      const sizes = tag.includes(' sizes=') ? '' : ` sizes="${variants.sizes}"`;
+      return tag.replace(/>$/, ` srcset="${candidates.join(', ')}"${sizes}>`);
+    });
     html = html.replace('</head>', `  <link rel="canonical" href="${origin}${route}">\n  <link rel="icon" href="/favicon.svg?v=balance" type="image/svg+xml">\n  <link rel="apple-touch-icon" href="/apple-touch-icon.png">\n</head>`);
     assert.ok(!/Propuesta V4|Prototipo local|noindex|Preparación local|Prueba local:|Versión local, no publicada/.test(html), 'Preview copy leaked into the release');
     add(route.slice(1) + 'index.html', html);
