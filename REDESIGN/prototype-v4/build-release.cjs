@@ -109,6 +109,8 @@ function collectRelease(optimized = require('./optimized-resources.json')) {
     assert.ok(!/<canvas\b/i.test(html), 'Active canvas assets need an explicit release inventory');
     assert.equal((html.match(/<meta name="robots"[^>]*>/g) || []).length, 1);
     html = html.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="index, follow">');
+    // Lighthouse fetches robots.txt under the page CSP; allow only that public file.
+    if (name !== 'index.html') html = replaceOnce(html, "connect-src 'none'", `connect-src ${origin}/robots.txt`);
     html = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
     html = html.replace(/\b(href|src|poster|data-src)="([^"]+)"/g, (_, attr, ref) => `${attr}="${reference(ref, source)}"`);
     html = html.replace(/<link\b[^>]*href="[^"]+\.woff"[^>]*>/g, tag => tag.replace('type="font/ttf"', 'type="font/woff"'));

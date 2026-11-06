@@ -1,5 +1,18 @@
 # Versión local preparada para publicación
 
+## Rastreo e indexación — 6 de noviembre de 2026
+
+- La fuente de verdad es `build-release.cjs`: genera `dist/robots.txt` y `dist/sitemap.xml` con las siete rutas públicas y el dominio canónico `https://www.exommethod.com`. Los archivos antiguos de la raíz no son la salida que publica Vercel; no mantener otra lista de rutas independiente.
+- Comprobado en producción: ambos archivos responden con 200; las siete páginas del sitemap responden con 200, tienen su canonical correcto y permiten `index, follow`, sin cabecera `X-Robots-Tag` que las excluya.
+- Corrección local del falso fallo SEO de Lighthouse: las páginas secundarias permiten en `connect-src` únicamente `https://www.exommethod.com/robots.txt`. No se amplía a todo el dominio ni a terceros. El resto de la política y el formulario permanecen intactos. Referencia: [Lighthouse #17292](https://github.com/GoogleChrome/lighthouse/issues/17292).
+- Tras autorizar y verificar la publicación, el siguiente paso es verificar la propiedad del dominio en la cuenta de Google Search Console que indique el propietario, enviar `https://www.exommethod.com/sitemap.xml` y solicitar la indexación de las páginas prioritarias. No se ha accedido a una cuenta ni enviado solicitudes a Google; el envío no garantiza la indexación ni un plazo concreto.
+
+### Carga de Mi historia
+
+- Se precarga el póster principal y se reduce la prioridad de las fotografías de capítulos posteriores, sin diferirlas ni modificar vídeos, diseño o animaciones.
+- Comparación local con Lighthouse 13.6: rendimiento móvil 76 → 87 en dos mediciones; LCP 6,86 → 4,06 s. Accesibilidad, buenas prácticas y SEO: 100. No equivale a una medición de la versión publicada ni garantiza esa puntuación en otros dispositivos.
+- Comprobaciones generales y de publicación: PASS. Revisión visual móvil: fotografías completas, sin desbordamiento; los tres vídeos se pausan al salir del presente y se reanudan al volver. Pendiente repetir la auditoría tras publicar y comprobar en un iPhone físico.
+
 ## Lanzamiento autorizado — 5 de noviembre de 2026
 
 El propietario aprobó la Preview final `bl88t61lg` y autoriza publicar por `main`, activar el formulario y realizar un único envío ficticio. La sesión GitHub del equipo y la sesión Vercel aislada están autorizadas para estas operaciones. Este permiso no es evidencia de publicación ni de entrega: ambas se comprueban después del push.

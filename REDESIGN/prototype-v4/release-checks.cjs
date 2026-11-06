@@ -98,6 +98,8 @@ async function check() {
     assert.ok(html.includes('rel="icon" href="/favicon.svg?v=balance" type="image/svg+xml"'), 'Every public route uses the updated favicon');
     assert.ok(html.includes('name="robots" content="index, follow"'));
     assert.ok(html.includes('Content-Security-Policy') && html.includes("object-src 'none'; base-uri 'none'"));
+    const policy = text => text.match(/http-equiv="Content-Security-Policy" content="([^"]+)"/)[1];
+    assert.equal(policy(html), name === 'index.html' ? policy(source) : policy(source).replace("connect-src 'none'", `connect-src ${origin}/robots.txt`), 'Only the exact public robots URL is allowed; all other security directives stay unchanged');
     assert.ok(!/Propuesta V4|Prototipo V4|Prototipo local|Preparación local|noindex|Borrador local/.test(html));
     assert.ok(!html.includes('\r'));
     for (const match of html.matchAll(/\b(?:href|src|poster|data-src|action)="([^"]+)"/g)) checkRef(match[1], route);
@@ -154,7 +156,12 @@ async function check() {
   const privacy = output.get('privacy/index.html').toString();
   for (const text of ['Vercel Hobby', 'Resend Free', 'Gmail gratuito', 'WhatsApp normal', 'EE. UU.', '90 días', '6.1.b', 'Agencia Española de Protección de Datos']) assert.ok(privacy.includes(text), 'Required disclosure retained: ' + text);
   assert.ok(output.get('historia/index.html').toString().includes('/' + optimized['assets/history/referee.webp'].file));
+  const historyHtml = output.get('historia/index.html').toString();
+  const poster = '/' + optimized['assets/history-present/pose.webp'].file;
+  assert.ok(historyHtml.includes(`<link rel="preload" href="${poster}" as="image" fetchpriority="high">`));
+  assert.ok(historyHtml.includes(`poster="${poster}"`), 'Preload and video reuse the same optimized image');
   assert.equal((output.get('sitemap.xml').toString().match(/<loc>/g) || []).length, 7);
+  assert.deepEqual([...output.get('sitemap.xml').toString().matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]), Object.values(pages).map(([route]) => origin + route), 'Sitemap contains every canonical public route exactly once');
   assert.ok(output.get('robots.txt').toString().includes(origin + '/sitemap.xml'));
   console.log('PASS: seven public routes, assets/anchors, canonical www URLs, sitemap/robots, security headers, approved copy and source isolation.');
 

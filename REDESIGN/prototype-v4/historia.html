@@ -7,6 +7,7 @@
   <meta name="description" content="Un viaje por la historia de Moisés Sánchez: del taekwondo y una lesión que cambió su camino al nacimiento de EXOM.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'none'">
   <title>Propuesta V4 · Mi historia — Moisés Sánchez · EXOM</title>
+  <link rel="preload" href="assets/history-present/pose.webp" as="image" fetchpriority="high">
   <link rel="preload" href="assets/barlow-condensed-800.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script defer src="navigation.js"></script>
@@ -23,7 +24,7 @@
         <a href="index.html#inicio" class="wordmark brand-lockup" aria-label="EXOM, inicio"><img class="brand-symbol" src="assets/exom-balance.svg" width="120" height="112" alt=""><span class="brand-lettering" aria-hidden="true">E<span>X</span>OM</span></a>
         <nav id="navigation" aria-label="Navegación principal"><a href="index.html#metodo">El método</a><a href="historia.html" aria-current="page">Mi historia</a><a href="app.html">La app</a><a href="index.html#solicitud" class="nav-cta">Empezar <span aria-hidden="true">↗</span></a></nav><div class="header-actions"><button class="text-button" id="history-motion" type="button" aria-pressed="true" disabled>Sin efectos</button><button id="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg></button></div>
       </header>
-      <div class="journey-atmosphere" aria-hidden="true"><img class="atmosphere-layer" src="assets/history/early-school.webp" alt=""><img class="atmosphere-layer" src="assets/history/rehab-floor.webp" alt=""><img class="atmosphere-layer" src="assets/history/creating.webp" alt=""></div>
+      <div class="journey-atmosphere" aria-hidden="true"><img class="atmosphere-layer" src="assets/history/early-school.webp" alt="" fetchpriority="low"><img class="atmosphere-layer" src="assets/history/rehab-floor.webp" alt="" fetchpriority="low"><img class="atmosphere-layer" src="assets/history/creating.webp" alt="" fetchpriority="low"></div>
       <section class="memory memory-present" id="presente" aria-labelledby="presente-title" data-label="El presente">
         <div class="memory-space"><div class="memory-camera">
           <figure class="journey-photo pose-side" data-x="0.04" data-y="-0.04" data-mobile-x="-0.30" data-mobile-y="-0.04" data-z="-80"><video muted loop playsinline preload="none" poster="assets/history-present/pose-2.webp" width="720" height="1280" aria-label="Moi mostrando su físico actual, segundo posado"><source src="assets/history-present/pose-2.mp4" type="video/mp4"></video></figure>
@@ -38,9 +39,9 @@
       </section>
       <section class="memory memory-origin" id="origen" aria-labelledby="origen-title" data-label="El comienzo">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-main" data-x="-0.25" data-y="-0.02" data-z="0"><img src="assets/history/childhood-tkd.webp" alt="Moi de pequeño junto a un expositor de cinturones" decoding="async"></figure>
-          <figure class="journey-photo photo-small" data-x="-0.04" data-mobile-x="0.31" data-mobile-y="-0.16" data-y="-0.22" data-z="-160"><img src="assets/history/childhood.webp" alt="Moi durante su infancia" decoding="async"></figure>
-          <figure class="journey-photo photo-small" data-x="-0.07" data-mobile-x="0.3" data-mobile-y="0.08" data-y="0.06" data-z="-160"><img src="assets/history/childhood-surf.webp" alt="Moi de pequeño con una tabla de surf" decoding="async"></figure>
+          <figure class="journey-photo photo-main" data-x="-0.25" data-y="-0.02" data-z="0"><img src="assets/history/childhood-tkd.webp" alt="Moi de pequeño junto a un expositor de cinturones" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-small" data-x="-0.04" data-mobile-x="0.31" data-mobile-y="-0.16" data-y="-0.22" data-z="-160"><img src="assets/history/childhood.webp" alt="Moi durante su infancia" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-small" data-x="-0.07" data-mobile-x="0.3" data-mobile-y="0.08" data-y="0.06" data-z="-160"><img src="assets/history/childhood-surf.webp" alt="Moi de pequeño con una tabla de surf" decoding="async" fetchpriority="low"></figure>
         </div></div>
         <div class="memory-copy copy-right">
           <h2 id="origen-title"><span class="memory-line">Tenía cuatro años.</span><span class="memory-line"><em>Y todo por descubrir.</em></span></h2>
@@ -49,8 +50,8 @@
       </section>
       <section class="memory memory-school" id="escuela" aria-labelledby="escuela-title" data-label="Nuestra propia escuela">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-wide" data-x="-0.15" data-y="-0.08" data-z="0"><img src="assets/history/early-school.webp" alt="Los primeros tiempos de la escuela de taekwondo" decoding="async"></figure>
-            <figure class="journey-photo photo-small photo-school-competition" data-x="0.3" data-y="-0.185" data-mobile-x="0.3" data-mobile-y="-0.13" data-z="40"><img src="assets/history/young-competition.webp" alt="Moi de pequeño con el peto rojo en una competición" decoding="async"></figure>
+          <figure class="journey-photo photo-wide" data-x="-0.15" data-y="-0.08" data-z="0"><img src="assets/history/early-school.webp" alt="Los primeros tiempos de la escuela de taekwondo" decoding="async" fetchpriority="low"></figure>
+            <figure class="journey-photo photo-small photo-school-competition" data-x="0.3" data-y="-0.185" data-mobile-x="0.3" data-mobile-y="-0.13" data-z="40"><img src="assets/history/young-competition.webp" alt="Moi de pequeño con el peto rojo en una competición" decoding="async" fetchpriority="low"></figure>
         </div></div>
         <div class="memory-copy copy-right">
           <h2 id="escuela-title"><span class="memory-line">Aprender también</span><span class="memory-line"><em>era enseñar.</em></span></h2>
@@ -59,9 +60,9 @@
       </section>
       <section class="memory memory-sport" id="taekwondo" aria-labelledby="taekwondo-title" data-label="Una vida de deporte">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-wide" data-x="0.19" data-y="-0.08" data-z="0"><img src="assets/history/competition.webp" alt="Moi, con el peto rojo, compitiendo en taekwondo" decoding="async"></figure>
-            <figure class="journey-photo photo-small photo-referee" data-x="-0.3" data-y="-0.19" data-mobile-x="-0.25" data-mobile-y="-0.14" data-z="40"><img src="assets/history/referee.webp" alt="Moi ejerciendo como árbitro de taekwondo" decoding="async"></figure>
-          <figure class="journey-photo photo-detail" data-x="0.39" data-y="0.18" data-mobile-x="0.34" data-z="0"><img src="assets/history/medals.webp" alt="Medallas de la trayectoria deportiva de Moi" decoding="async"></figure>
+          <figure class="journey-photo photo-wide" data-x="0.19" data-y="-0.08" data-z="0"><img src="assets/history/competition.webp" alt="Moi, con el peto rojo, compitiendo en taekwondo" decoding="async" fetchpriority="low"></figure>
+            <figure class="journey-photo photo-small photo-referee" data-x="-0.3" data-y="-0.19" data-mobile-x="-0.25" data-mobile-y="-0.14" data-z="40"><img src="assets/history/referee.webp" alt="Moi ejerciendo como árbitro de taekwondo" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-detail" data-x="0.39" data-y="0.18" data-mobile-x="0.34" data-z="0"><img src="assets/history/medals.webp" alt="Medallas de la trayectoria deportiva de Moi" decoding="async" fetchpriority="low"></figure>
         </div></div>
         <div class="memory-copy copy-left">
           <h2 id="taekwondo-title"><span class="memory-line">Mi mundo era</span><span class="memory-line"><em>el tatami.</em></span></h2>
@@ -70,7 +71,7 @@
       </section>
       <section class="memory memory-injury" id="lesion" aria-labelledby="lesion-title" data-label="La pausa">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-hospital" data-x="0.12" data-y="-0.03" data-z="0"><picture><source media="(max-width:760px)" srcset="assets/history/hospital-portrait.webp"><img src="assets/history/hospital.webp" alt="Moi en el hospital después de la operación de rodilla" decoding="async"></picture></figure>
+          <figure class="journey-photo photo-hospital" data-x="0.12" data-y="-0.03" data-z="0"><picture><source media="(max-width:760px)" srcset="assets/history/hospital-portrait.webp"><img src="assets/history/hospital.webp" alt="Moi en el hospital después de la operación de rodilla" decoding="async" fetchpriority="low"></picture></figure>
         </div></div>
         <div class="memory-copy copy-left">
           <h2 id="lesion-title"><span class="memory-line">Hasta que tuve</span><span class="memory-line"><em>que parar.</em></span></h2>
@@ -79,9 +80,9 @@
       </section>
       <section class="memory memory-rebuild" id="reconstruir" aria-labelledby="reconstruir-title" data-label="Volver a empezar">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-main" data-x="-0.25" data-y="-0.02" data-z="0"><img src="assets/history/rehab-standing.webp" alt="Moi durante su rehabilitación en la escuela" decoding="async"></figure>
-          <figure class="journey-photo photo-small" data-x="-0.04" data-mobile-x="0.31" data-mobile-y="-0.16" data-y="-0.23" data-z="-160"><img src="assets/history/rehab-floor.webp" alt="Moi haciendo un ejercicio en el suelo durante su rehabilitación" decoding="async"></figure>
-          <figure class="journey-photo photo-small" data-x="-0.07" data-mobile-x="0.3" data-mobile-y="0.08" data-y="0.06" data-z="-160"><img src="assets/history/rehab-school.webp" alt="Moi durante otra sesión de rehabilitación en la escuela" decoding="async"></figure>
+          <figure class="journey-photo photo-main" data-x="-0.25" data-y="-0.02" data-z="0"><img src="assets/history/rehab-standing.webp" alt="Moi durante su rehabilitación en la escuela" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-small" data-x="-0.04" data-mobile-x="0.31" data-mobile-y="-0.16" data-y="-0.23" data-z="-160"><img src="assets/history/rehab-floor.webp" alt="Moi haciendo un ejercicio en el suelo durante su rehabilitación" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-small" data-x="-0.07" data-mobile-x="0.3" data-mobile-y="0.08" data-y="0.06" data-z="-160"><img src="assets/history/rehab-school.webp" alt="Moi durante otra sesión de rehabilitación en la escuela" decoding="async" fetchpriority="low"></figure>
         </div></div>
         <div class="memory-copy copy-right">
           <h2 id="reconstruir-title"><span class="memory-line">Esta vez, el reto</span><span class="memory-line"><em>era reconstruirme.</em></span></h2>
@@ -90,8 +91,8 @@
       </section>
       <section class="memory memory-learning" id="entender" aria-labelledby="entender-title" data-label="Aprender para acompañar">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-main" data-x="0.31" data-y="0.05" data-z="0"><img src="assets/history/studying.webp" alt="Moi estudiando una formación de entrenamiento" decoding="async"></figure>
-          <figure class="journey-photo photo-recognition" data-x="0.07" data-mobile-x="-0.10" data-mobile-y="-0.12" data-y="-0.20" data-z="100"><img src="assets/history/recognition.webp" alt="Moi recogiendo un reconocimiento en un acto oficial" decoding="async"></figure>
+          <figure class="journey-photo photo-main" data-x="0.31" data-y="0.05" data-z="0"><img src="assets/history/studying.webp" alt="Moi estudiando una formación de entrenamiento" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-recognition" data-x="0.07" data-mobile-x="-0.10" data-mobile-y="-0.12" data-y="-0.20" data-z="100"><img src="assets/history/recognition.webp" alt="Moi recogiendo un reconocimiento en un acto oficial" decoding="async" fetchpriority="low"></figure>
         </div></div>
         <div class="memory-copy copy-left">
           <h2 id="entender-title"><span class="memory-line">No era solo volver.</span><span class="memory-line"><em>Era entender cómo.</em></span></h2>
@@ -99,27 +100,27 @@
         </div>
       </section>
       <div class="memory-archive" id="recuerdos" role="region" aria-labelledby="recuerdos-title"><div class="archive-wall">
-        <figure class="archive-photo"><img src="assets/history/childhood-tkd.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/childhood.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/childhood-surf.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/early-school.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/young-competition.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/referee.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/competition.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/medals.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/hospital.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/rehab-standing.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/rehab-floor.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/rehab-school.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/studying.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history/recognition.webp" alt="" decoding="async"></figure>
-        <figure class="archive-photo"><img src="assets/history-present/pose.webp" alt="" decoding="async"></figure>
+        <figure class="archive-photo"><img src="assets/history/childhood-tkd.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/childhood.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/childhood-surf.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/early-school.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/young-competition.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/referee.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/competition.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/medals.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/hospital.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/rehab-standing.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/rehab-floor.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/rehab-school.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/studying.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history/recognition.webp" alt="" decoding="async" fetchpriority="low"></figure>
+        <figure class="archive-photo"><img src="assets/history-present/pose.webp" alt="" decoding="async" fetchpriority="low"></figure>
       </div><p class="archive-caption" id="recuerdos-title">Cada etapa cuenta.<br><em>Todo forma parte de mí.</em></p></div>
       <section class="memory memory-exom" id="exom" aria-labelledby="exom-title" data-label="Así nace EXOM">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-main" data-x="0.29" data-mobile-x="0.21" data-mobile-y="-0.04" data-y="-0.02" data-z="0"><img src="assets/history/creating.webp" alt="Moi trabajando en el desarrollo de EXOM" decoding="async"></figure>
-          <figure class="journey-photo photo-small" data-x="-0.29" data-mobile-x="-0.28" data-mobile-y="-0.16" data-y="-0.22" data-z="-160"><img src="assets/history/call-jose.webp" alt="Moi atendiendo una videollamada de seguimiento" decoding="async"></figure>
-          <figure class="journey-photo photo-call" data-x="-0.03" data-mobile-x="-0.22" data-mobile-y="0.09" data-y="-0.12" data-z="0"><img src="assets/history/call-miguel-private.webp" alt="Moi y un cliente durante una videollamada" decoding="async"></figure>
+          <figure class="journey-photo photo-main" data-x="0.29" data-mobile-x="0.21" data-mobile-y="-0.04" data-y="-0.02" data-z="0"><img src="assets/history/creating.webp" alt="Moi trabajando en el desarrollo de EXOM" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-small" data-x="-0.29" data-mobile-x="-0.28" data-mobile-y="-0.16" data-y="-0.22" data-z="-160"><img src="assets/history/call-jose.webp" alt="Moi atendiendo una videollamada de seguimiento" decoding="async" fetchpriority="low"></figure>
+          <figure class="journey-photo photo-call" data-x="-0.03" data-mobile-x="-0.22" data-mobile-y="0.09" data-y="-0.12" data-z="0"><img src="assets/history/call-miguel-private.webp" alt="Moi y un cliente durante una videollamada" decoding="async" fetchpriority="low"></figure>
         </div></div>
         <div class="memory-copy copy-left">
           <h2 id="exom-title"><span class="memory-line">De todo ese camino,</span><span class="memory-line"><em>nace EXOM.</em></span></h2>
@@ -128,7 +129,7 @@
       </section>
       <section class="memory memory-ending" id="tu-camino" aria-labelledby="tu-camino-title" data-label="Tu siguiente paso">
         <div class="memory-space"><div class="memory-camera">
-          <figure class="journey-photo photo-ending" data-x="-0.26" data-y="-0.02" data-z="0"><img src="assets/history/planning.webp" alt="Moi trabajando con el móvil y sus apuntes sobre la mesa" decoding="async"></figure>
+          <figure class="journey-photo photo-ending" data-x="-0.26" data-y="-0.02" data-z="0"><img src="assets/history/planning.webp" alt="Moi trabajando con el móvil y sus apuntes sobre la mesa" decoding="async" fetchpriority="low"></figure>
         </div></div>
         <div class="memory-copy copy-right">
           <h2 id="tu-camino-title"><span class="memory-line">Este ha sido mi camino.</span><span class="memory-line"><em>Ahora, cuéntame el tuyo.</em></span></h2>

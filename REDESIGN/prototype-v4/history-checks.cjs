@@ -43,6 +43,10 @@ assert.deepEqual(archiveSources.slice(3, 8), ['early-school', 'young-competition
 assert.ok(!css.includes('radial-gradient')); 
 const presentMarkup = html.split('id="presente"')[1].split('</section>')[0];
 assert.equal((presentMarkup.match(/<video /g)||[]).length,3);
+const mainPoster = presentMarkup.match(/<video id="history-pose"[^>]*poster="([^"]+)"/)[1];
+assert.ok(html.includes(`<link rel="preload" href="${mainPoster}" as="image" fetchpriority="high">`), 'Prioritize the existing main poster before video and archive downloads');
+const historyImages = html.match(/<img\b[^>]*src="assets\/history[^>]*>/g);
+assert.ok(historyImages.length > 0 && historyImages.every(tag => tag.includes('fetchpriority="low"')), 'Later chapter images must not compete with the present poster');
 for(const i of [1,2,3]) assert.ok(presentMarkup.includes(`assets/history-present/pose-${i}.mp4`));
 assert.ok(!html.includes('assets/history-present/pose.mp4'), 'Three simultaneous clips replace the sequential montage');
 assert.ok([1,2,3].reduce((bytes,i)=>bytes+fs.statSync(path.join(__dirname,`assets/history-present/pose-${i}.mp4`)).size,0)<2100000,'Three clips retain the original download budget');
