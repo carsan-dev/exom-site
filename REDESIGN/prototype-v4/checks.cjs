@@ -13,6 +13,7 @@ require('./home-viewport-checks.cjs');
 require('./history-checks.cjs');
 
 async function check() {
+  await require('./text-preparation-checks.cjs')();
   await require('./utility-pages-checks.cjs')();
   await require('./form-checks.cjs')();
   await require('./application-checks.cjs')();
@@ -275,7 +276,7 @@ async function check() {
     assert.equal(pushState.direction, direction);
   }
   assert.equal(sceneTile(71, 'coach').page, 18, 'The complete inspected coaching interval is exported');
-  const revealSource = app.slice(app.indexOf('function setupHeadingReveals()'), app.indexOf('function configureMotion()'));
+  const revealSource = app.slice(app.indexOf('function setupHeadingReveals('), app.indexOf('function configureMotion()'));
   const setup = () => runInNewContext(revealSource + '\nsetupHeadingReveals();', harness);
   setup(); assert.equal(revealOptions.length, 0, 'Wait for fonts without hiding content');
   harness.revealFontsReady = true; harness.window.SplitText = null;

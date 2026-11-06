@@ -31,10 +31,11 @@ assert.ok(!/\b(scale|rotation)\s*:/.test(source), 'Curtain opens without zooming
 const letterSource = app.slice(app.indexOf('function setupStrategyLetters('), app.indexOf('function createStrategyTimeline('));
 const splits = [];
 let targetWidth = 100;
+let widthReads = 0;
 const targets = [true, true, false, false, false].map((objective, index) => ({
   classList: { contains: name => name === 'strategy-ink' && index === 4 },
   closest: () => ({ classList: { contains: () => objective } }),
-  getBoundingClientRect: () => ({ left: 0, right: targetWidth, width: targetWidth })
+  getBoundingClientRect: () => { widthReads++; return { left: 0, right: targetWidth, width: targetWidth }; }
 }));
 const linkedFrame = { clipPath: '' };
 const linkedTimeline = context.createStrategyTimeline(linkedFrame, { scaleX: 1 });
@@ -42,7 +43,7 @@ const letterContext = vm.createContext({ revealFontsReady: false, innerWidth: 12
   window: { SplitText: true }, strategySplits: [], strategyTimeline: linkedTimeline, gsap,
   document: { querySelectorAll: () => targets },
   SplitText: { create(target, options) {
-    const chars = [10, 30].map(left => {
+    const chars = Array.from({ length: 14 }, (_, index) => 10 + 20 * index).map(left => {
       const char = { x: 0, yPercent: 0 };
       char.getBoundingClientRect = () => ({ left: left + char.x, right: left + 10 + char.x });
       return char;
@@ -57,6 +58,7 @@ try {
   linkedTimeline.progress(.5);
   letterContext.revealFontsReady = true;
   letterContext.setupStrategyLetters();
+  assert.ok(widthReads <= 20, 'Measure each text group, not every animated character');
   assert.equal(linkedTimeline.progress(), .5, 'Late font readiness preserves curtain progress');
   assert.equal(linkedTimeline.duration(), 1, 'Letters never lengthen the curtain');
   assert.equal(splits.length, 5);

@@ -124,10 +124,10 @@ function renderSequences() {
   warmScenes();
 }
 
-function setupHeadingReveals() {
+function setupHeadingReveals(headings = document.querySelectorAll('main h1, main h2, .gallery-heading h3')) {
   if (!revealFontsReady || !window.SplitText) return;
   gsap.registerPlugin(SplitText);
-  document.querySelectorAll('main h1, main h2, .gallery-heading h3').forEach(heading => {
+  headings.forEach(heading => {
     if (heading.id === 'hero-title') return;
     if (revealedHeadings.has(heading)) return;
     if (heading.getBoundingClientRect().bottom <= 0) {
@@ -150,6 +150,29 @@ function setupHeadingReveals() {
       }
     }));
   });
+}
+
+async function prepareTextAfterFonts() {
+  revealFontsReady = true;
+  const context = motionContext;
+  if (context && document.body.dataset.motion === 'on') {
+    const immediate = [], remaining = [];
+    document.querySelectorAll('main h1, main h2, .gallery-heading h3').forEach(heading => {
+      if (heading.id === 'hero-title') return;
+      (heading.getBoundingClientRect().top < innerHeight ? immediate : remaining).push(heading);
+    });
+    context.add(() => {
+      setupHeadingReveals(immediate);
+      setupStrategyLetters();
+    });
+    // Keep visible text synchronous; yield between below-fold setup tasks, not animations.
+    for (const heading of remaining) {
+      await (window.scheduler?.yield?.() || new Promise(resolve => setTimeout(resolve, 0)));
+      if (motionContext !== context || document.body.dataset.motion !== 'on') return;
+      context.add(() => setupHeadingReveals([heading]));
+    }
+  }
+  window.ScrollTrigger?.refresh();
 }
 
 function setupFormationMotion() {
@@ -199,8 +222,12 @@ function setupStrategyLetters() {
     });
     strategySplits.push(split);
     // The edge reveals successive letters; equal travel preserves their spacing.
+    let travel;
     strategyTimeline.fromTo(split.chars, {
-      x: () => (objective ? 1 : -1) * (target.getBoundingClientRect().width + 4)
+      x: index => {
+        if (index === 0) travel = (objective ? 1 : -1) * (target.getBoundingClientRect().width + 4);
+        return travel;
+      }
     }, {
       x: 0, duration: 1, ease: 'power2.inOut'
     }, 0);
@@ -390,14 +417,7 @@ document.addEventListener('visibilitychange', () => {
   window.ExomGallery.sync();
   if (!document.hidden) warmScenes();
 });
-document.fonts.ready.then(() => {
-  revealFontsReady = true;
-  if (document.body.dataset.motion === 'on') motionContext?.add(() => {
-    setupHeadingReveals();
-    setupStrategyLetters();
-  });
-  window.ScrollTrigger?.refresh();
-});
+document.fonts.ready.then(prepareTextAfterFonts);
 
 document.querySelectorAll('.comparison input').forEach(slider => {
   function updateComparison() {
