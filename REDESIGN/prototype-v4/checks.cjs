@@ -13,6 +13,7 @@ require('./home-viewport-checks.cjs');
 require('./history-checks.cjs');
 
 async function check() {
+  await require('./testimonials-checks.cjs')();
   await require('./text-preparation-checks.cjs')();
   await require('./utility-pages-checks.cjs')();
   await require('./form-checks.cjs')();
@@ -345,10 +346,19 @@ async function check() {
   assert.ok(!html.includes('Pendiente identificar a Carlos'));
   assert.ok(!html.includes('Ver fotos completas') && !html.includes('Ver la app'));
   assert.equal((html.match(/data-testimonial-slot/g)||[]).length,3);
-  assert.ok(html.includes('id="testimonios" aria-labelledby="testimonials-title" hidden'), 'Pending testimonials remain recoverable but hidden');
+  assert.ok(html.includes('id="testimonios" aria-labelledby="testimonials-title">'), 'Available testimonials are visible');
+  assert.ok(!html.includes('testimonial-placeholder') && !html.includes('Vídeo pendiente de incorporar'));
+  const testimonialVideos = html.match(/<video[^>]+class="testimonial-video"[^>]*>/g) || [];
+  assert.equal(testimonialVideos.length, 3);
+  for (const tag of testimonialVideos) {
+    assert.ok(tag.includes('controls playsinline preload="none"'));
+    assert.ok(!/\b(autoplay|muted|loop)\b/.test(tag));
+    assert.match(tag, /poster="assets\/testimonials-v1\/\w+\.webp"/);
+    assert.match(tag, /src="assets\/testimonials-v1\/\w+\.mp4"/);
+  }
   assert.ok(css.includes('.testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}'), 'Testimonial columns may shrink below their text intrinsic width');
-  assert.ok(css.includes('padding:clamp(20px,2.5vw,28px)') && css.includes('font:800 clamp(28px,4vw,44px)/1 Barlow'), 'Testimonial copy and padding fit intermediate widths without clipping');
-  assert.ok(css.includes('.testimonial-placeholder{padding:25px}') && css.includes('.testimonial-placeholder>p{font-size:36px}'), 'Mobile testimonial sizes remain unchanged');
+  assert.ok(css.includes('aspect-ratio:464/832') && css.includes('.testimonial-video{display:block;width:100%;height:100%;object-fit:contain}'), 'Preserve complete portrait framing');
+  assert.ok(css.includes('.testimonial-slot{flex:0 0 80%;scroll-snap-align:start}'), 'Keep the approved mobile scrolling cards');
   assert.ok(html.includes('id="galeria"'));
   assert.ok(app.includes("trigger: '.x-gallery'") && !app.includes('pin: true') && !app.includes('anticipatePin'));
   assert.ok(app.includes("start: 'top bottom', end: 'bottom top'"));

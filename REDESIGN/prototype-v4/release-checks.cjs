@@ -13,7 +13,7 @@ async function check() {
   const originals = collectRelease({});
   assert.ok(![...output.keys()].some(name => name.endsWith('.webm')), 'No WebM in the public output');
   const videos = [...output].filter(([name]) => name.endsWith('.mp4'));
-  assert.equal(videos.length, 18);
+  assert.equal(videos.length, 21);
   for (const [name, bytes] of videos) assert.ok(bytes.length <= 5000000, 'Video exceeds 5 MB: ' + name);
   const optimized = require('./optimized-resources.json');
   const evidence = require('./resource-optimization.evidence.json');
@@ -36,7 +36,21 @@ async function check() {
       assert.ok(record.dimensions.every((value, index) => value > 0 && value <= record.originalDimensions[index]));
     }
   }
-  const photos = [...originals.keys()].filter(name => /\.(png|jpe?g|webp)$/i.test(name) && !['apple-touch-icon.png', 'email-logo.png'].includes(name));
+  const testimonialMedia = require('./assets/testimonials-v1/sources.json');
+  for (const record of testimonialMedia) {
+    assert.equal(digest(fs.readFileSync(path.join(root, record.original))), record.originalSha256, 'Testimonial original preserved');
+    for (const kind of ['video', 'poster']) {
+      const media = record[kind];
+      const bytes = output.get(media.file);
+      assert.equal(digest(bytes), media.sha256);
+      assert.equal(bytes.length, media.bytes);
+      assert.ok(bytes.length <= (kind === 'video' ? 5000000 : 500000));
+    }
+    assert.equal(record.poster.quality, 80);
+  }
+  assert.equal(testimonialMedia.length, 3);
+  assert.ok(![...output.keys()].some(name => /testimonio_/.test(name)), 'Original testimonials never ship');
+  const photos = [...originals.keys()].filter(name => !name.startsWith('assets/testimonials-v1/') && /\.(png|jpe?g|webp)$/i.test(name) && !['apple-touch-icon.png', 'email-logo.png'].includes(name));
   assert.equal(photos.length, 53);
   for (const name of photos) assert.ok(optimized[name]?.file.endsWith('.webp'), 'Every photo uses WebP: ' + name);
   assert.ok(Object.keys(optimized).length > 0);

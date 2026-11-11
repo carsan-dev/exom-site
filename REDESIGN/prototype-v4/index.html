@@ -21,6 +21,7 @@
   <script defer src="gallery-videos.js"></script>
   <script defer src="app.js"></script>
   <script defer src="gallery-shared.js"></script>
+  <script defer src="testimonials.js"></script>
 </head>
 <body>
   <dialog class="welcome" id="welcome" aria-labelledby="welcome-message">
@@ -131,7 +132,44 @@
       </figure>
     </section>
 
-    <section class="section testimonials" id="testimonios" aria-labelledby="testimonials-title" hidden><div class="section-heading"><h2 id="testimonials-title">EXOM,<br><em>en su propia voz.</em></h2><p>Conoce cómo viven el método las personas a las que acompaño.</p></div><div class="testimonial-grid"><article class="testimonial-slot" data-testimonial-slot><div class="testimonial-placeholder"><span>30–60 s</span><p>Su experiencia.<br>En primera persona.</p><small>Vídeo pendiente de incorporar</small></div></article><article class="testimonial-slot" data-testimonial-slot><div class="testimonial-placeholder"><span>30–60 s</span><p>Su experiencia.<br>En primera persona.</p><small>Vídeo pendiente de incorporar</small></div></article><article class="testimonial-slot" data-testimonial-slot><div class="testimonial-placeholder"><span>30–60 s</span><p>Su experiencia.<br>En primera persona.</p><small>Vídeo pendiente de incorporar</small></div></article></div></section>
+    <section class="section testimonials" id="testimonios" aria-labelledby="testimonials-title">
+      <div class="section-heading"><h2 id="testimonials-title">EXOM,<br><em>en su propia voz.</em></h2><p>Conoce cómo viven el método las personas a las que acompaño.</p></div>
+      <div class="testimonial-navigation" hidden>
+        <div class="testimonial-tabs" role="tablist" aria-label="Elige un testimonio">
+          <button type="button" role="tab" id="testimonial-tab-0" aria-controls="testimonial-panel-0" aria-selected="true">Adrián</button>
+          <button type="button" role="tab" id="testimonial-tab-1" aria-controls="testimonial-panel-1" aria-selected="false" tabindex="-1">Gloria</button>
+          <button type="button" role="tab" id="testimonial-tab-2" aria-controls="testimonial-panel-2" aria-selected="false" tabindex="-1">Lucía</button>
+        </div>
+      </div>
+      <div class="testimonial-grid">
+        <article class="testimonial-slot" data-testimonial-slot>
+          <div class="testimonial-player">
+            <video id="testimonio-adrian" class="testimonial-video" controls playsinline preload="none" width="464" height="832" poster="assets/testimonials-v1/adrian.webp" src="assets/testimonials-v1/adrian.mp4" aria-label="Testimonio de Adrián"></video>
+            <button class="testimonial-play" type="button" aria-label="Reproducir testimonio de Adrián" aria-controls="testimonio-adrian" hidden><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M17 10 38 24 17 38Z"/></svg></button>
+          </div>
+          <h3>Adrián</h3><p class="testimonial-error" role="status" hidden></p>
+        </article>
+        <article class="testimonial-slot" data-testimonial-slot>
+          <div class="testimonial-player">
+            <video id="testimonio-gloria" class="testimonial-video" controls playsinline preload="none" width="464" height="832" poster="assets/testimonials-v1/gloria.webp" src="assets/testimonials-v1/gloria.mp4" aria-label="Testimonio de Gloria"></video>
+            <button class="testimonial-play" type="button" aria-label="Reproducir testimonio de Gloria" aria-controls="testimonio-gloria" hidden><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M17 10 38 24 17 38Z"/></svg></button>
+          </div>
+          <h3>Gloria</h3><p class="testimonial-error" role="status" hidden></p>
+        </article>
+        <article class="testimonial-slot" data-testimonial-slot>
+          <div class="testimonial-player">
+            <video id="testimonio-lucia" class="testimonial-video" controls playsinline preload="none" width="464" height="832" poster="assets/testimonials-v1/lucia.webp" src="assets/testimonials-v1/lucia.mp4" aria-label="Testimonio de Lucía"></video>
+            <button class="testimonial-play" type="button" aria-label="Reproducir testimonio de Lucía" aria-controls="testimonio-lucia" hidden><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M17 10 38 24 17 38Z"/></svg></button>
+          </div>
+          <h3>Lucía</h3><p class="testimonial-error" role="status" hidden></p>
+        </article>
+      </div>
+      <div class="testimonial-pagination" hidden>
+        <button class="testimonial-arrow" type="button" data-testimonial-step="-1" aria-label="Testimonio anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg></button>
+        <span class="testimonial-position" aria-live="polite" aria-atomic="true">1 de 3</span>
+        <button class="testimonial-arrow" type="button" data-testimonial-step="1" aria-label="Testimonio siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button>
+      </div>
+    </section>
 
     <section class="section story story-expanded" id="historia" aria-labelledby="story-title">
       <figure class="story-photo"><img src="../assets/media/images/Moi vestido taekwondo.png" alt="Moi con su uniforme de taekwondo" width="1024" height="1536" loading="lazy"></figure>

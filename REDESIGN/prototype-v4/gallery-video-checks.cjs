@@ -76,7 +76,10 @@ module.exports = async function checkGalleryVideos() {
     .replace('Prototipo V4 · Formulario local · Sin correos reales', 'Prototipo V4 · Historia inmersiva · Sin envíos');
   const previousV3 = fs.readFileSync(path.resolve(__dirname,'../prototype-v3/index.html'),'utf8');
   // D86/D93/D94/D97 permit navigation, capture wrappers, utility links and the two approved form questions.
+  // Testimonials are validated independently; retain historical parity for the rest of the landing.
   const v3=v4
+    .replace('  <script defer src="testimonials.js"></script>\n', '')
+    .replace(/<section class="section testimonials"[\s\S]*?<\/section>/, previousV3.match(/<section class="section testimonials"[\s\S]*?<\/section>/)[0])
     .replaceAll(' sizes="(max-width: 760px) calc((100vw - 64px) / 3), 165px"', '')
     .replace('<p class="sr-only">Cada objetivo necesita una estrategia.</p>', '')
     .replace('class="display strategy-objective strategy-line" aria-hidden="true"', 'class="display strategy-objective strategy-line"')
@@ -147,7 +150,11 @@ module.exports = async function checkGalleryVideos() {
   assert.ok(normalized.includes('alt="Moi realizando un peso muerto a una pierna"'));
   assert.equal(normalized.replace(coachingCopy, originalCopy).replace(strategyCopy, 'Tu esfuerzo.<br>Con <em>dirección.</em>').replace('alt="Moi realizando un peso muerto a una pierna"', 'alt="Persona del método realizando elevaciones con mancuernas"'),v2,'Only gallery playback, version label and approved coaching/exercise content differ');
   const css=fs.readFileSync(path.join(__dirname,'styles.css'),'utf8').replace(/calc\((\d+(?:\.\d+)?) \* var\(--home-(s?vh), 1\2\)\)/g, '$1$2');
-  const previousCss = css.replace('.exercise-scene{height:auto;background', '.exercise-scene{height:360vh;background')
+  const historicalCss = fs.readFileSync(path.resolve(__dirname, '../prototype-v2/styles.css'), 'utf8');
+  const previousCss = css
+    .replace(/\.testimonial-slot\{min-width:0\}[\s\S]*?\.testimonial-error\{[^}]*\}/, historicalCss.match(/\.testimonial-placeholder\{[\s\S]*?\.testimonials \.testimonial-note\{[^}]*\}/)[0])
+    .replace('  .testimonial-slot h3{font-size:36px}', '  .testimonial-placeholder{padding:25px}\n  .testimonial-placeholder>p{font-size:36px}')
+    .replace('.exercise-scene{height:auto;background', '.exercise-scene{height:360vh;background')
     .replace('  .exercise-scene{height:auto}', '  .exercise-scene{height:360vh}')
     .replaceAll('.film-stage{height:370vh', '.film-stage{height:360vh')
     .replace('.testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}', '.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}')

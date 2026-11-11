@@ -1,0 +1,59 @@
+[
+  {
+    "name": "adrian",
+    "original": "assets/testimonio_adrian.mp4",
+    "originalSha256": "393f01d26c6df044cfed4a1d7eefbd57d41a3e99663c42d0d51049c2aabd55df",
+    "crf": "21.4",
+    "preset": "veryslow",
+    "posterTime": 1,
+    "video": {
+      "file": "assets/testimonials-v1/adrian.mp4",
+      "bytes": 4911378,
+      "sha256": "472baa4c332e4ff83bd116099c6a3a656d0dcfb370dde1ed82bc35fea41bbe88"
+    },
+    "poster": {
+      "file": "assets/testimonials-v1/adrian.webp",
+      "bytes": 16992,
+      "sha256": "5b55cff2d6d199fb1932183e51d4fa1682c3c52c274b36da08e2ef94949dc113",
+      "quality": 80
+    }
+  },
+  {
+    "name": "gloria",
+    "original": "assets/testimonio_gloria.mp4",
+    "originalSha256": "a802655c1974c301e1ff113b08a4fb8449c745d0a43c2993edf771214e7a51fc",
+    "crf": "19",
+    "preset": "veryslow",
+    "posterTime": 1,
+    "video": {
+      "file": "assets/testimonials-v1/gloria.mp4",
+      "bytes": 4899476,
+      "sha256": "d84c4db1e4a93aa8c4b2dc60dd4b619963539f4355dc9eddf098393e7b3d9531"
+    },
+    "poster": {
+      "file": "assets/testimonials-v1/gloria.webp",
+      "bytes": 14592,
+      "sha256": "f7e71ecc0eb3c5f205fa0828089da5e5172a1edbf9d4a83cf7a740f70950ad4a",
+      "quality": 80
+    }
+  },
+  {
+    "name": "lucia",
+    "original": "assets/testimonio_lucia.mp4",
+    "originalSha256": "0fef2970e9ac2085e70be853c336019ad2a8daf09ee72842a5a1219714dd4c39",
+    "crf": null,
+    "preset": "stream-copy",
+    "posterTime": 1,
+    "video": {
+      "file": "assets/testimonials-v1/lucia.mp4",
+      "bytes": 4786189,
+      "sha256": "e2b89b7327b1132afa739fb04fd697317d0ea85f31437e424f15fd80162e3adb"
+    },
+    "poster": {
+      "file": "assets/testimonials-v1/lucia.webp",
+      "bytes": 12420,
+      "sha256": "e073091d371fa1628a5c6f91d907ace5cf22574242cc46394f21d5e8285b6691",
+      "quality": 80
+    }
+  }
+]
