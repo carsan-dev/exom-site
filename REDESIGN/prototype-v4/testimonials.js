@@ -56,7 +56,7 @@
   let touch = null;
   stage.addEventListener('touchstart', event => {
     touch = null;
-    if (event.touches.length !== 1 || !players[selected].video.paused) return;
+    if (event.touches.length !== 1) return;
     const point = event.touches[0];
     const bounds = players[selected].video.getBoundingClientRect();
     // Leave the native seek/volume controls to the browser.
@@ -66,7 +66,11 @@
   stage.addEventListener('touchmove', event => {
     if (!touch || event.touches.length !== 1) { touch = null; return; }
     const point = event.touches[0];
-    if (Math.abs(point.clientX - touch.x) > 12 && Math.abs(point.clientX - touch.x) > Math.abs(point.clientY - touch.y) * 1.3) event.preventDefault();
+    if (Math.abs(point.clientX - touch.x) > 12 && Math.abs(point.clientX - touch.x) > Math.abs(point.clientY - touch.y) * 1.3) {
+      event.preventDefault();
+      active = null;
+      players[selected].video.pause();
+    }
   }, { passive: false });
   stage.addEventListener('touchend', event => {
     if (!touch) return;
