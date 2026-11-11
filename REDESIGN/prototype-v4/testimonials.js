@@ -7,7 +7,8 @@
     video: slot.querySelector('video'),
     button: slot.querySelector('.testimonial-play'),
     message: slot.querySelector('.testimonial-error'),
-    pending: false
+    pending: false,
+    started: false
   }));
   const tabs = [...section.querySelectorAll('[role="tab"]')];
   const stage = section.querySelector('.testimonial-grid');
@@ -22,12 +23,13 @@
       players.forEach(({ video }) => video.pause());
     }
     selected = next;
-    players.forEach(({ slot, video }, i) => {
+    players.forEach(({ slot, video, started }, i) => {
       const current = i === selected;
       slot.dataset.position = current ? 'active' : i === (selected + 1) % players.length ? 'next' : 'previous';
       slot.inert = !current;
       slot.setAttribute('aria-hidden', String(!current));
-      video.controls = current;
+      video.controls = current && started;
+      video.tabIndex = current && started ? 0 : -1;
       tabs[i].setAttribute('aria-selected', String(current));
       tabs[i].tabIndex = current ? 0 : -1;
     });
@@ -91,11 +93,15 @@
     const { video, button, message } = player;
     const label = button.getAttribute('aria-label');
     const sync = () => {
-      button.hidden = !video.paused && !video.ended;
+      // The initial branded Play and native playback controls never overlap.
+      button.hidden = player.started;
+      video.controls = players[selected] === player && player.started;
+      video.tabIndex = video.controls ? 0 : -1;
       button.disabled = player.pending;
       button.setAttribute('aria-label', player.pending ? 'Cargando testimonio' : label);
     };
     const failure = () => {
+      player.started = false;
       message.textContent = 'No se ha podido reproducir el vídeo. Pulsa Play para reintentarlo.';
       message.hidden = false;
       sync();
@@ -126,7 +132,12 @@
       else select(player);
       sync();
     });
-    video.addEventListener('playing', () => { message.hidden = true; sync(); });
+    video.addEventListener('playing', () => {
+      if (video.paused || document.hidden || players[selected] !== player || active !== player) return;
+      player.started = true;
+      message.hidden = true;
+      sync();
+    });
     ['pause', 'ended'].forEach(event => video.addEventListener(event, sync));
     video.addEventListener('error', failure);
     sync();
